@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Art Gallery</title>
+<meta name="description" content="A gallery of artwork generated entirely from equations.">
+<style>
+  :root {
+    --wall: #24211f;
+    --wall-light: #3a3531;
+    --mat: #fbfaf7;
+    --text: #ece6df;
+    --muted: #a39a90;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--text);
+    font: 17px/1.6 Georgia, "Times New Roman", serif;
+    background: radial-gradient(ellipse at top, var(--wall-light), var(--wall) 70%) fixed;
+  }
+  header {
+    text-align: center;
+    padding: 5rem 1.5rem 3rem;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+  }
+  header p { color: var(--muted); max-width: 38rem; margin: 1rem auto 0; }
+  main { max-width: 1150px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  .piece {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 3rem;
+    align-items: center;
+    margin: 0 0 6rem;
+  }
+  .piece:nth-child(even) { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+  .piece:nth-child(even) .frame { order: 2; }
+  .frame {
+    display: block;
+    background: var(--mat);
+    padding: 7%;
+    border: 10px solid #121110;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px #000;
+    transition: transform 0.3s ease;
+  }
+  .frame:hover { transform: translateY(-4px); }
+  .frame img { display: block; width: 100%; height: auto; }
+  .plaque .no {
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  .plaque h2 { margin: 0.2rem 0 1rem; font-weight: normal; font-size: 1.8rem; }
+  .plaque pre {
+    margin: 0 0 1rem;
+    padding: 0.9rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 2px solid var(--muted);
+    font: 0.85rem/1.7 ui-monospace, Menlo, Consolas, monospace;
+    white-space: pre-wrap;
+  }
+  .plaque .params { color: var(--muted); font-size: 0.9rem; font-style: italic; }
+  .plaque a.src { color: var(--muted); font-size: 0.85rem; }
+  footer { text-align: center; color: var(--muted); padding: 2rem 1rem 4rem; font-size: 0.9rem; }
+  footer a { color: var(--text); }
+  @media (max-width: 800px) {
+    .piece, .piece:nth-child(even) { grid-template-columns: 1fr; gap: 1.5rem; }
+    .piece:nth-child(even) .frame { order: 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Math Art Gallery</h1>
+  <p>Every piece on these walls was drawn by an equation. No brushes, no hand
+  tuning of pixels, just a few lines of math iterated millions of times.
+  Click any frame for the full resolution image.</p>
+</header>
+<main>
+    <article class="piece" id="clifford">
+      <a class="frame" href="art/clifford.png"><img src="art/clifford.jpg" alt="Clifford Attractor" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 1</span>
+        <h2>Clifford Attractor</h2>
+        <pre>x&#x27; = sin(a y) + c cos(a x)
+y&#x27; = sin(b x) + d cos(b y)</pre>
+        <p class="params">a = -1.3, b = -1.3, c = -1.8, d = -1.9, 10 million points</p>
+        <p>Two lines of trigonometry, iterated ten million times. Each point is computed from the one before it, and the orbit never settles into a repeating loop, yet it always traces the same tangle of ribbons. Darker ink means more visits.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/clifford.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="dejong">
+      <a class="frame" href="art/dejong.png"><img src="art/dejong.jpg" alt="Peter de Jong Attractor" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 2</span>
+        <h2>Peter de Jong Attractor</h2>
+        <pre>x&#x27; = sin(a y) - cos(b x)
+y&#x27; = sin(c x) - cos(d y)</pre>
+        <p class="params">a = 1.4, b = -2.3, c = 2.4, d = -2.1, 12 million points</p>
+        <p>A close cousin of the Clifford map with the cosines subtracted instead of added. The same idea, a different personality: it folds into smoke instead of ribbons. Rendered like a long exposure of light on black.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/dejong.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="lorenz">
+      <a class="frame" href="art/lorenz.png"><img src="art/lorenz.jpg" alt="Lorenz Attractor" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 3</span>
+        <h2>Lorenz Attractor</h2>
+        <pre>dx/dt = s (y - x)
+dy/dt = x (r - z) - y
+dz/dt = x y - b z</pre>
+        <p class="params">s = 10, r = 28, b = 8/3, RK4 with dt = 0.002, 6 trajectories</p>
+        <p>Edward Lorenz&#x27;s simplified weather model, the original butterfly. Six particles start a hair apart and are carried along the flow. Within seconds they disagree completely about where they are, but all of them keep circling the same two wings.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/lorenz.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="julia">
+      <a class="frame" href="art/julia.png"><img src="art/julia.jpg" alt="Julia Set" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 4</span>
+        <h2>Julia Set</h2>
+        <pre>z&#x27; = z^2 + c
+c = -0.8 + 0.156i</pre>
+        <p class="params">500 iterations, smooth escape-time coloring</p>
+        <p>Every pixel is a starting value of z. Square it, add c, repeat. Points that stay bounded forever form the set; the color outside shows how quickly each point escaped. The edge is infinitely detailed.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/julia.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="fern">
+      <a class="frame" href="art/fern.png"><img src="art/fern.jpg" alt="Barnsley Fern" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 5</span>
+        <h2>Barnsley Fern</h2>
+        <pre>pick one of four affine maps at random
+(x, y) -&gt; A (x, y) + b</pre>
+        <p class="params">4 maps chosen with probability 1%, 85%, 7%, 7%, 8 million points</p>
+        <p>A fern drawn by rolling dice. Each map is a simple stretch, rotate and shift; one makes the stem, one makes each leaf a smaller copy of the whole, and two make the first left and right leaflets.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/fern.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="harmonograph">
+      <a class="frame" href="art/harmonograph.png"><img src="art/harmonograph.jpg" alt="Harmonograph" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 6</span>
+        <h2>Harmonograph</h2>
+        <pre>x(t) = e^(-d1 t) sin(f1 t + p1) + e^(-d2 t) sin(f2 t + p2)
+y(t) = e^(-d3 t) sin(f3 t + p3) + e^(-d4 t) sin(f4 t + p4)</pre>
+        <p class="params">f = 3, 2, 3, 2.006, damping around 0.005 per second</p>
+        <p>A Victorian drawing machine in software: a pen moved by swinging pendulums that slowly lose energy. Frequencies close to a simple ratio, but not quite, make the figure drift and spiral inward.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/harmonograph.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="maurer">
+      <a class="frame" href="art/maurer.png"><img src="art/maurer.jpg" alt="Maurer Rose" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 7</span>
+        <h2>Maurer Rose</h2>
+        <pre>r = sin(n theta)
+connect the points at theta = k d degrees, k = 0..360</pre>
+        <p class="params">n = 6, d = 71</p>
+        <p>Start with the rose curve r = sin(6 theta), then ignore it and walk around it in jumps of 71 degrees, joining each landing spot with a straight line. The rose (in red) is hidden inside its own web.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/maurer.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="phyllotaxis">
+      <a class="frame" href="art/phyllotaxis.png"><img src="art/phyllotaxis.jpg" alt="Phyllotaxis" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 8</span>
+        <h2>Phyllotaxis</h2>
+        <pre>theta_k = k * 137.508 degrees
+r_k = sqrt(k)</pre>
+        <p class="params">1,500 seeds, golden angle</p>
+        <p>How a sunflower packs its seeds. Each new seed is placed one golden angle around from the last. Because the golden ratio is the &#x27;most irrational&#x27; number, the seeds never line up into gaps, and the spiral families you see come in Fibonacci numbers.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/phyllotaxis.py">source</a>
+      </div>
+    </article>
+</main>
+<footer>
+  Generated with Python and numpy. Code and instructions at
+  <a href="https://github.com/jq6l43d1/math-art-gallery">github.com/jq6l43d1/math-art-gallery</a>.
+</footer>
+</body>
+</html>

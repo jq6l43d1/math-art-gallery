@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Math Art Gallery</title>
+<meta name="description" content="A gallery of artwork generated entirely from equations.">
+<style>
+  :root {
+    --wall: #24211f;
+    --wall-light: #3a3531;
+    --mat: #fbfaf7;
+    --text: #ece6df;
+    --muted: #a39a90;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--text);
+    font: 17px/1.6 Georgia, "Times New Roman", serif;
+    background: radial-gradient(ellipse at top, var(--wall-light), var(--wall) 70%) fixed;
+  }
+  header {
+    text-align: center;
+    padding: 5rem 1.5rem 3rem;
+  }
+  header h1 {
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+  }
+  header p { color: var(--muted); max-width: 38rem; margin: 1rem auto 0; }
+  main { max-width: 1150px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+  .piece {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 3rem;
+    align-items: center;
+    margin: 0 0 6rem;
+  }
+  .piece:nth-child(even) { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+  .piece:nth-child(even) .frame { order: 2; }
+  .frame {
+    display: block;
+    background: var(--mat);
+    padding: 7%;
+    border: 10px solid #121110;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px #000;
+    transition: transform 0.3s ease;
+  }
+  .frame:hover { transform: translateY(-4px); }
+  .frame img { display: block; width: 100%; height: auto; }
+  .plaque .no {
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+  }
+  .plaque h2 { margin: 0.2rem 0 1rem; font-weight: normal; font-size: 1.8rem; }
+  .plaque pre {
+    margin: 0 0 1rem;
+    padding: 0.9rem 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-left: 2px solid var(--muted);
+    font: 0.85rem/1.7 ui-monospace, Menlo, Consolas, monospace;
+    white-space: pre-wrap;
+  }
+  .plaque .params { color: var(--muted); font-size: 0.9rem; font-style: italic; }
+  .plaque a.src { color: var(--muted); font-size: 0.85rem; }
+  footer { text-align: center; color: var(--muted); padding: 2rem 1rem 4rem; font-size: 0.9rem; }
+  footer a { color: var(--text); }
+  @media (max-width: 800px) {
+    .piece, .piece:nth-child(even) { grid-template-columns: 1fr; gap: 1.5rem; }
+    .piece:nth-child(even) .frame { order: 0; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Math Art Gallery</h1>
+  <p>Every piece on these walls was drawn by an equation. No brushes, no hand
+  tuning of pixels, just a few lines of math iterated millions of times.
+  Click any frame for the full resolution image.</p>
+</header>
+<main>{{PIECES}}
+</main>
+<footer>
+  Generated with Python and numpy. Code and instructions at
+  <a href="https://github.com/jq6l43d1/math-art-gallery">github.com/jq6l43d1/math-art-gallery</a>.
+</footer>
+</body>
+</html>
