@@ -11,6 +11,8 @@ import html
 import time
 from pathlib import Path
 
+from PIL import Image
+
 from gallery.pieces import PIECES
 
 ROOT = Path(__file__).parent
@@ -24,7 +26,7 @@ def render(names, size, seed):
         start = time.perf_counter()
         img = PIECES[name].render((size, size), seed=seed)
         img.save(ART / f"{name}.png", optimize=True)
-        thumb = img.resize((800, 800 * img.height // img.width))
+        thumb = img.resize((800, 800 * img.height // img.width), Image.LANCZOS)
         thumb.save(ART / f"{name}.jpg", quality=88)
         print(f"{name:14s} {time.perf_counter() - start:6.1f}s")
 

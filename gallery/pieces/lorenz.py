@@ -1,5 +1,6 @@
 import numpy as np
 
+from ..flows import trace
 from ..render import Canvas, bounds_of, ink
 
 TITLE = "Lorenz Attractor"
@@ -26,33 +27,14 @@ def render(size, seed=0):
         x, y, z = p
         return np.array([s * (y - x), x * (r - z) - y, x * y - b * z])
 
-    def rk4(p):
-        k1 = f(p)
-        k2 = f(p + dt / 2 * k1)
-        k3 = f(p + dt / 2 * k2)
-        k4 = f(p + dt * k3)
-        return p + dt / 6 * (k1 + 2 * k2 + 2 * k3 + k4)
-
-    p = np.array([[1.0], [1.0], [20.0]]) + rng.normal(0, 1e-3, (3, n))
-    for _ in range(1000):
-        p = rk4(p)
+    start = np.array([[1.0], [1.0], [20.0]]) + rng.normal(0, 1e-3, (3, n))
+    path = trace(f, start, dt, steps=40_000)
 
     # Rotate slightly so the two wings don't sit flat on top of each other.
     angle = 0.55
-    view = lambda q: (q[0] * np.cos(angle) + q[1] * np.sin(angle), q[2])
+    x = path[0] * np.cos(angle) + path[1] * np.sin(angle)
+    y = path[2]
 
-    steps = 40_000
-    path = np.empty((steps, 3, n))
-    for i in range(steps):
-        p = rk4(p)
-        path[i] = p
-
-    # Fast parts of the orbit move several pixels per step, so fill the gaps
-    # between consecutive samples to get continuous strokes instead of dots.
-    sub = np.linspace(0, 1, 12, endpoint=False)[:, None, None, None]
-    path = (path[:-1] + (path[1:] - path[:-1]) * sub).transpose(2, 1, 0, 3).reshape(3, -1)
-
-    x, y = view(path)
     canvas = Canvas(size, bounds_of(x, y, 0, 1), margin=0.08)
     canvas.add(x, y)
 

@@ -182,6 +182,104 @@ r_k = sqrt(k)</pre>
         <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/phyllotaxis.py">source</a>
       </div>
     </article>
+    <article class="piece" id="buddhabrot">
+      <a class="frame" href="art/buddhabrot.png"><img src="art/buddhabrot.jpg" alt="Buddhabrot" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 9</span>
+        <h2>Buddhabrot</h2>
+        <pre>z&#x27; = z^2 + c,  z_0 = 0
+plot every z along the orbits that escape</pre>
+        <p class="params">12 million samples of c; orbits escaping in 200-1000 steps paint orange, 40-200 green, 8-40 blue</p>
+        <p>The Mandelbrot set turned inside out. Instead of coloring each c by whether it escapes, I follow the points that do escape and plot every place their orbit visits on the way out. Slow escapes paint orange, quick ones blue. Turned on its side, a seated figure appears.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/buddhabrot.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="aizawa">
+      <a class="frame" href="art/aizawa.png"><img src="art/aizawa.jpg" alt="Aizawa Attractor" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 10</span>
+        <h2>Aizawa Attractor</h2>
+        <pre>dx/dt = (z - b) x - d y
+dy/dt = d x + (z - b) y
+dz/dt = c + a z - z^3/3 - (x^2 + y^2)(1 + e z) + f z x^3</pre>
+        <p class="params">a = 0.95, b = 0.7, c = 0.6, d = 3.5, e = 0.25, f = 0.1, 300 particles</p>
+        <p>Particles spiral around a sphere-like shell, get pulled up a narrow tube through the middle, and spill back over the top. Seen from the side and slightly above, the paths look like a spun-glass apple.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/aizawa.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="newton">
+      <a class="frame" href="art/newton.png"><img src="art/newton.jpg" alt="Newton Fractal" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 11</span>
+        <h2>Newton Fractal</h2>
+        <pre>z&#x27; = z - p(z) / p&#x27;(z)
+p(z) = z^3 - 1</pre>
+        <p class="params">60 iterations, colored by which root each point reaches</p>
+        <p>Newton&#x27;s method finds roots by sliding down tangent lines. Start it everywhere on the complex plane and color each point by which of the three cube roots of 1 it lands on. Between any two colors, the third always squeezes in, forever.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/newton.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="ikeda">
+      <a class="frame" href="art/ikeda.png"><img src="art/ikeda.jpg" alt="Ikeda Map" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 12</span>
+        <h2>Ikeda Map</h2>
+        <pre>t = 0.4 - 6 / (1 + x^2 + y^2)
+x&#x27; = 1 + u (x cos t - y sin t)
+y&#x27; = u (x sin t + y cos t)</pre>
+        <p class="params">u = 0.9, 10 million points</p>
+        <p>A model of light circling a ring-shaped laser cavity, losing a little energy and picking up a twist on every lap. The twist depends on how far from the center the light is, which is enough to fold the orbit into this curling wave.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/ikeda.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="grayscott">
+      <a class="frame" href="art/grayscott.png"><img src="art/grayscott.jpg" alt="Gray-Scott Reaction-Diffusion" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 13</span>
+        <h2>Gray-Scott Reaction-Diffusion</h2>
+        <pre>du/dt = Du lap(u) - u v^2 + F (1 - u)
+dv/dt = Dv lap(v) + u v^2 - (F + k) v</pre>
+        <p class="params">Du = 0.16, Dv = 0.08, F = 0.029, k = 0.057, 10,000 steps on a 300 x 300 grid</p>
+        <p>Two imaginary chemicals: one is fed in, the other eats it and reproduces. Both spread out, at different speeds. Starting from a few random specks, that balance grows into the same maze-like stripes you see on fish, coral and fingerprints.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/grayscott.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="hopalong">
+      <a class="frame" href="art/hopalong.png"><img src="art/hopalong.jpg" alt="Hopalong" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 14</span>
+        <h2>Hopalong</h2>
+        <pre>x&#x27; = y - sign(x) sqrt(|b x - c|)
+y&#x27; = a - x</pre>
+        <p class="params">a = 1.1, b = 0.5, c = 1, 4 million steps from (0, 0), colored by time</p>
+        <p>Barry Martin&#x27;s map from the 1986 Scientific American. One point hops around the plane four million times. It never repeats, but it keeps returning to the same family of tiles, and coloring it by time shows the pattern slowly growing outward.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/hopalong.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="chaosgame">
+      <a class="frame" href="art/chaosgame.png"><img src="art/chaosgame.jpg" alt="Chaos Game" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 15</span>
+        <h2>Chaos Game</h2>
+        <pre>pick a random corner of a pentagon (never the same one twice in a row)
+p&#x27; = p + (corner - p) / 2</pre>
+        <p class="params">5 corners, jump ratio 1/2, 10 million points</p>
+        <p>Pick a corner of a pentagon at random and move halfway toward it. Repeat. With no rules the points fill the shape with mush, but one small restriction (don&#x27;t pick the same corner twice in a row) is enough to carve out this lace. Each point takes the color of its last corner.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/chaosgame.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="sandpile">
+      <a class="frame" href="art/sandpile.png"><img src="art/sandpile.jpg" alt="Abelian Sandpile" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 16</span>
+        <h2>Abelian Sandpile</h2>
+        <pre>drop N grains on one cell
+any cell with 4 or more grains gives 1 to each neighbor</pre>
+        <p class="params">N = 2^16 grains, colored by 0, 1, 2 or 3 grains left</p>
+        <p>Pour sand onto a single square of a grid. Whenever a square holds four grains it topples, passing one to each neighbor, which may topple in turn. When everything finally settles, this fractal of nested triangles and ovals is what&#x27;s left. The order of topplings doesn&#x27;t matter; the result is always identical.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/sandpile.py">source</a>
+      </div>
+    </article>
 </main>
 <footer>
   Generated with Python and numpy. Code and instructions at

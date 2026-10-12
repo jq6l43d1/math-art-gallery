@@ -39,9 +39,15 @@ class Canvas:
         w = None if weight is None else weight[keep]
         self.counts += np.bincount(idx, weights=w, minlength=self.counts.size)
 
-    def tone(self, gamma=1.0, clip=0.999):
-        """Log-scale the counts into 0..1 so faint and dense regions both read."""
-        c = np.log1p(self.counts.reshape(self.h, self.w))
+    def tone(self, gamma=1.0, clip=0.999, log=True):
+        """Scale the counts into 0..1.
+
+        Log scaling (the default) lets faint and dense regions both read.
+        Pieces whose counts are already fairly even can turn it off.
+        """
+        c = self.counts.reshape(self.h, self.w)
+        if log:
+            c = np.log1p(c)
         top = np.quantile(c[c > 0], clip) if np.any(c > 0) else 1.0
         return np.clip(c / top, 0, 1) ** gamma
 
@@ -65,4 +71,10 @@ def gradient(t, stops):
     i = np.clip(pos.astype(np.int64), 0, len(stops) - 2)
     f = (pos - i)[..., None]
     rgb = colors[i] * (1 - f) + colors[i + 1] * f
+    return Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
+
+
+def glow(layers, background="#000000"):
+    """Add colored light on a dark background: layers is [(t, hex color), ...]."""
+    rgb = hex_rgb(background) + sum(t[..., None] * hex_rgb(c) for t, c in layers)
     return Image.fromarray(np.clip(rgb, 0, 255).astype(np.uint8))
