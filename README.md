@@ -27,6 +27,14 @@ the same 10 million points take about two seconds, so I kept adding pieces.
 | 14 | [Hopalong](gallery/pieces/hopalong.py) | `x' = y - sign(x) sqrt(\|b x - c\|)`, `y' = a - x` |
 | 15 | [Chaos game](gallery/pieces/chaosgame.py) | jump halfway to a random pentagon corner, never the same one twice |
 | 16 | [Abelian sandpile](gallery/pieces/sandpile.py) | 65,536 grains toppling on a grid |
+| 17 | [Seahorse Valley](gallery/pieces/mandelbrot.py) | a deep zoom into the Mandelbrot set |
+| 18 | [Quasicrystal](gallery/pieces/quasicrystal.py) | seven plane waves summed, symmetric but never repeating |
+| 19 | [Standard map](gallery/pieces/standardmap.py) | `p' = p + K sin(theta)`, `theta' = theta + p'` |
+| 20 | [Apollonian gasket](gallery/pieces/apollonian.py) | circles packed with Descartes' circle theorem |
+| 21 | [Lyapunov fractal](gallery/pieces/lyapunov.py) | stability of the logistic map with an alternating growth rate |
+| 22 | [Dragon curves](gallery/pieces/dragon.py) | paper-folding sequence, four copies tiling around a point |
+| 23 | [Domain coloring](gallery/pieces/domain.py) | a complex function drawn as color (phase) and rings (size) |
+| 24 | [Hilbert curve](gallery/pieces/hilbert.py) | a space-filling curve through a 64 x 64 grid |
 
 ## Running it
 
@@ -42,8 +50,8 @@ python build.py --page-only      # rebuild docs/index.html without rendering
 
 Images land in `docs/art/` (a full PNG plus a JPG for the page) and the
 gallery page is `docs/index.html`, which GitHub Pages serves directly.
-Rendering the whole set takes under two minutes on my machine, and most of
-that is the Buddhabrot.
+Rendering the whole set takes about two and a half minutes on my machine,
+and the Buddhabrot is the slowest piece by far.
 
 ## How it works
 
@@ -80,10 +88,16 @@ the final pile doesn't depend on the order, so every cell topples as many
 times as it can in one numpy step. The result matches a slow
 one-cell-at-a-time version exactly.
 
+**Sorting order from chaos.** In the standard map, overlapping chaotic orbits
+average out to grey static. Each orbit's Lyapunov exponent (how fast two
+nearby starting points pull apart) is estimated by pushing a tiny vector
+through the map's Jacobian. Chaotic orbits are drawn in one muted color, and
+the regular ones get the bright colors.
+
 **Continuous curves.** The Lorenz and Aizawa systems and the harmonograph are
 smooth paths, so sampling them gives dots that spread apart wherever the curve
-moves fast.
-Interpolating between consecutive samples turns those dots back into strokes.
+moves fast. Interpolating between consecutive samples turns those dots back
+into strokes.
 
 ## Adding a piece
 

@@ -1,8 +1,9 @@
 """Every piece in the gallery, in the order they hang on the wall."""
 
 from . import (
-    aizawa, buddhabrot, chaosgame, clifford, dejong, fern, grayscott, harmonograph,
-    hopalong, ikeda, julia, lorenz, maurer, newton, phyllotaxis, sandpile,
+    aizawa, apollonian, buddhabrot, chaosgame, clifford, dejong, domain, dragon, fern,
+    grayscott, harmonograph, hilbert, hopalong, ikeda, julia, lorenz, lyapunov, mandelbrot,
+    maurer, newton, phyllotaxis, quasicrystal, sandpile, standardmap,
 )
 
 PIECES = {
@@ -22,4 +23,12 @@ PIECES = {
     "hopalong": hopalong,
     "chaosgame": chaosgame,
     "sandpile": sandpile,
+    "mandelbrot": mandelbrot,
+    "quasicrystal": quasicrystal,
+    "standardmap": standardmap,
+    "apollonian": apollonian,
+    "lyapunov": lyapunov,
+    "dragon": dragon,
+    "domain": domain,
+    "hilbert": hilbert,
 }

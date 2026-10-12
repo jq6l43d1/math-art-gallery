@@ -280,6 +280,100 @@ any cell with 4 or more grains gives 1 to each neighbor</pre>
         <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/sandpile.py">source</a>
       </div>
     </article>
+    <article class="piece" id="mandelbrot">
+      <a class="frame" href="art/mandelbrot.png"><img src="art/mandelbrot.jpg" alt="Seahorse Valley" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 17</span>
+        <h2>Seahorse Valley</h2>
+        <pre>z&#x27; = z^2 + c,  z_0 = 0
+c = the pixel</pre>
+        <p class="params">centered on -0.7453 + 0.1127i, about 1/500th the width of the full set, 1,500 iterations</p>
+        <p>A zoom into the Mandelbrot set, in the crease between its main body and the big round bulb to the left. Every swirl here is made of smaller swirls, and tiny complete copies of the whole set are hidden along the filaments.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/mandelbrot.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="quasicrystal">
+      <a class="frame" href="art/quasicrystal.png"><img src="art/quasicrystal.jpg" alt="Quasicrystal" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 18</span>
+        <h2>Quasicrystal</h2>
+        <pre>f(x, y) = sum over k = 0..6 of cos(x cos(k pi/7) + y sin(k pi/7))</pre>
+        <p class="params">7 plane waves, 7-fold symmetry</p>
+        <p>Seven flat ripples crossing at equal angles. Two, three, four or six waves would make a repeating tiling, but seven can&#x27;t: the pattern has perfect sevenfold symmetry around the center and yet never repeats anywhere, like the quasicrystals that won the 2011 Nobel Prize in Chemistry.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/quasicrystal.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="standardmap">
+      <a class="frame" href="art/standardmap.png"><img src="art/standardmap.jpg" alt="Standard Map" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 19</span>
+        <h2>Standard Map</h2>
+        <pre>p&#x27; = p + K sin(theta)
+theta&#x27; = theta + p&#x27;      (both mod 2 pi)</pre>
+        <p class="params">K = 0.97, 700 orbits of 2,500 kicks each, one color per orbit</p>
+        <p>A spinning rotor that gets kicked at regular intervals. Each color is one starting condition followed for 2,500 kicks. Some orbits stay on smooth curves or circle inside islands; others scatter across a chaotic sea, drawn in slate. K is set just below the point where the last smooth barrier breaks.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/standardmap.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="apollonian">
+      <a class="frame" href="art/apollonian.png"><img src="art/apollonian.jpg" alt="Apollonian Gasket" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 20</span>
+        <h2>Apollonian Gasket</h2>
+        <pre>k4 = 2 (k1 + k2 + k3) - k4_old
+k4 z4 = 2 (k1 z1 + k2 z2 + k3 z3) - k4_old z4_old</pre>
+        <p class="params">curvatures from Descartes&#x27; circle theorem, circles down to 1 pixel</p>
+        <p>Fill a circle with three touching circles, then fill every curved triangular gap with the largest circle that fits, forever. Descartes worked out the size of each new circle in 1643; a later complex-number version also gives its position. The smaller the circle, the brighter and warmer its color.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/apollonian.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="lyapunov">
+      <a class="frame" href="art/lyapunov.png"><img src="art/lyapunov.jpg" alt="Lyapunov Fractal" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 21</span>
+        <h2>Lyapunov Fractal</h2>
+        <pre>x&#x27; = r x (1 - x),  r alternates between a and b as &#x27;BBBBBBAAAAAA&#x27;
+lambda = average of log |r (1 - 2x)|</pre>
+        <p class="params">a from 2.5 to 3.4 (across), b from 3.4 to 4.0 (up), 600 steps</p>
+        <p>The logistic map is the simplest model of a population that grows until it runs out of food. Here the growth rate flips between two values in a fixed rhythm. Gold regions settle down to a steady pattern; the dark blue regions are chaos. The pattern was named Zircon Zity by Mario Markus, who first drew these around 1990.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/lyapunov.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="dragon">
+      <a class="frame" href="art/dragon.png"><img src="art/dragon.jpg" alt="Dragon Curves" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 22</span>
+        <h2>Dragon Curves</h2>
+        <pre>fold a strip of paper in half n times, unfold every crease to 90 degrees
+turn n is left if ((n &amp; -n) &lt;&lt; 1) &amp; n == 0, else right</pre>
+        <p class="params">4 curves of 2^11 segments, rotated 90 degrees apart, corners cut</p>
+        <p>Fold a strip of paper in half again and again, then open each fold to a right angle. The strip never crosses itself, and four copies turned a quarter turn apart fit together around a point with no gaps and no overlaps. Cutting each corner on a diagonal keeps neighboring turns from touching, so you can follow every strip from end to end.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/dragon.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="domain">
+      <a class="frame" href="art/domain.png"><img src="art/domain.jpg" alt="Domain Coloring" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 23</span>
+        <h2>Domain Coloring</h2>
+        <pre>f(z) = (z^2 - 1)(z - 2 - i)^2 / (z^2 + 2 + 2i)
+hue = arg f(z),  brightness bands = log |f(z)|</pre>
+        <p class="params">-3 to 3 on both axes</p>
+        <p>A way to draw a complex function, which takes a 2D input to a 2D output and can&#x27;t be graphed the usual way. Color shows the direction of f(z) and the shaded rings show its size. Zeros are where all the colors meet; the double zero at 2 + i spins through the rainbow twice. Poles look the same with the colors running backwards.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/domain.py">source</a>
+      </div>
+    </article>
+    <article class="piece" id="hilbert">
+      <a class="frame" href="art/hilbert.png"><img src="art/hilbert.jpg" alt="Hilbert Curve" loading="lazy"></a>
+      <div class="plaque">
+        <span class="no">No. 24</span>
+        <h2>Hilbert Curve</h2>
+        <pre>H(n) = four copies of H(n - 1), two rotated, joined end to end</pre>
+        <p class="params">order 6: one line through all 4,096 cells of a 64 x 64 grid</p>
+        <p>A single unbroken line that visits every square of a grid exactly once, built by joining four smaller copies of itself. Keep going and it fills the whole square. Color follows the line from start to finish, and the blocks show the useful part: cells that are close on the line are close on the page.</p>
+        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/hilbert.py">source</a>
+      </div>
+    </article>
 </main>
 <footer>
   Generated with Python and numpy. Code and instructions at
