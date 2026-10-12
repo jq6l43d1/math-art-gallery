@@ -5,375 +5,210 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Math Art Gallery</title>
 <meta name="description" content="A gallery of artwork generated entirely from equations.">
-<style>
-  :root {
-    --wall: #24211f;
-    --wall-light: #3a3531;
-    --mat: #fbfaf7;
-    --text: #ece6df;
-    --muted: #a39a90;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    color: var(--text);
-    font: 17px/1.6 Georgia, "Times New Roman", serif;
-    background: radial-gradient(ellipse at top, var(--wall-light), var(--wall) 70%) fixed;
-  }
-  header {
-    text-align: center;
-    padding: 5rem 1.5rem 3rem;
-  }
-  header h1 {
-    margin: 0;
-    font-weight: normal;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-size: clamp(1.6rem, 4vw, 2.6rem);
-  }
-  header p { color: var(--muted); max-width: 38rem; margin: 1rem auto 0; }
-  main { max-width: 1150px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-  .piece {
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-    gap: 3rem;
-    align-items: center;
-    margin: 0 0 6rem;
-  }
-  .piece:nth-child(even) { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
-  .piece:nth-child(even) .frame { order: 2; }
-  .frame {
-    display: block;
-    background: var(--mat);
-    padding: 7%;
-    border: 10px solid #121110;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px #000;
-    transition: transform 0.3s ease;
-  }
-  .frame:hover { transform: translateY(-4px); }
-  .frame img { display: block; width: 100%; height: auto; }
-  .plaque .no {
-    color: var(--muted);
-    font-size: 0.8rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-  }
-  .plaque h2 { margin: 0.2rem 0 1rem; font-weight: normal; font-size: 1.8rem; }
-  .plaque pre {
-    margin: 0 0 1rem;
-    padding: 0.9rem 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-left: 2px solid var(--muted);
-    font: 0.85rem/1.7 ui-monospace, Menlo, Consolas, monospace;
-    white-space: pre-wrap;
-  }
-  .plaque .params { color: var(--muted); font-size: 0.9rem; font-style: italic; }
-  .plaque a.src { color: var(--muted); font-size: 0.85rem; }
-  footer { text-align: center; color: var(--muted); padding: 2rem 1rem 4rem; font-size: 0.9rem; }
-  footer a { color: var(--text); }
-  @media (max-width: 800px) {
-    .piece, .piece:nth-child(even) { grid-template-columns: 1fr; gap: 1.5rem; }
-    .piece:nth-child(even) .frame { order: 0; }
-  }
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
+<header class="entrance">
   <h1>Math Art Gallery</h1>
-  <p>Every piece on these walls was drawn by an equation. No brushes, no hand
-  tuning of pixels, just a few lines of math iterated millions of times.
-  Click any frame for the full resolution image.</p>
+  <p>Every piece in this gallery was drawn by an equation. No brushes and no
+  hand-placed pixels, just a few lines of math repeated thousands or millions
+  of times. Each work hangs in its own room with a placard about the math
+  behind it and how it was made.</p>
+  <a class="start" href="pieces/clifford.html">Begin the tour</a>
 </header>
-<main>
-    <article class="piece" id="clifford">
-      <a class="frame" href="art/clifford.png"><img src="art/clifford.jpg" alt="Clifford Attractor" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 1</span>
-        <h2>Clifford Attractor</h2>
-        <pre>x&#x27; = sin(a y) + c cos(a x)
-y&#x27; = sin(b x) + d cos(b y)</pre>
-        <p class="params">a = -1.3, b = -1.3, c = -1.8, d = -1.9, 10 million points</p>
-        <p>Two lines of trigonometry, iterated ten million times. Each point is computed from the one before it, and the orbit never settles into a repeating loop, yet it always traces the same tangle of ribbons. Darker ink means more visits.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/clifford.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="dejong">
-      <a class="frame" href="art/dejong.png"><img src="art/dejong.jpg" alt="Peter de Jong Attractor" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 2</span>
-        <h2>Peter de Jong Attractor</h2>
-        <pre>x&#x27; = sin(a y) - cos(b x)
-y&#x27; = sin(c x) - cos(d y)</pre>
-        <p class="params">a = 1.4, b = -2.3, c = 2.4, d = -2.1, 12 million points</p>
-        <p>A close cousin of the Clifford map with the cosines subtracted instead of added. The same idea, a different personality: it folds into smoke instead of ribbons. Rendered like a long exposure of light on black.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/dejong.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="lorenz">
-      <a class="frame" href="art/lorenz.png"><img src="art/lorenz.jpg" alt="Lorenz Attractor" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 3</span>
-        <h2>Lorenz Attractor</h2>
-        <pre>dx/dt = s (y - x)
-dy/dt = x (r - z) - y
-dz/dt = x y - b z</pre>
-        <p class="params">s = 10, r = 28, b = 8/3, RK4 with dt = 0.002, 6 trajectories</p>
-        <p>Edward Lorenz&#x27;s simplified weather model, the original butterfly. Six particles start a hair apart and are carried along the flow. Within seconds they disagree completely about where they are, but all of them keep circling the same two wings.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/lorenz.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="julia">
-      <a class="frame" href="art/julia.png"><img src="art/julia.jpg" alt="Julia Set" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 4</span>
-        <h2>Julia Set</h2>
-        <pre>z&#x27; = z^2 + c
-c = -0.8 + 0.156i</pre>
-        <p class="params">500 iterations, smooth escape-time coloring</p>
-        <p>Every pixel is a starting value of z. Square it, add c, repeat. Points that stay bounded forever form the set; the color outside shows how quickly each point escaped. The edge is infinitely detailed.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/julia.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="fern">
-      <a class="frame" href="art/fern.png"><img src="art/fern.jpg" alt="Barnsley Fern" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 5</span>
-        <h2>Barnsley Fern</h2>
-        <pre>pick one of four affine maps at random
-(x, y) -&gt; A (x, y) + b</pre>
-        <p class="params">4 maps chosen with probability 1%, 85%, 7%, 7%, 8 million points</p>
-        <p>A fern drawn by rolling dice. Each map is a simple stretch, rotate and shift; one makes the stem, one makes each leaf a smaller copy of the whole, and two make the first left and right leaflets.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/fern.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="harmonograph">
-      <a class="frame" href="art/harmonograph.png"><img src="art/harmonograph.jpg" alt="Harmonograph" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 6</span>
-        <h2>Harmonograph</h2>
-        <pre>x(t) = e^(-d1 t) sin(f1 t + p1) + e^(-d2 t) sin(f2 t + p2)
-y(t) = e^(-d3 t) sin(f3 t + p3) + e^(-d4 t) sin(f4 t + p4)</pre>
-        <p class="params">f = 3, 2, 3, 2.006, damping around 0.005 per second</p>
-        <p>A Victorian drawing machine in software: a pen moved by swinging pendulums that slowly lose energy. Frequencies close to a simple ratio, but not quite, make the figure drift and spiral inward.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/harmonograph.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="maurer">
-      <a class="frame" href="art/maurer.png"><img src="art/maurer.jpg" alt="Maurer Rose" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 7</span>
-        <h2>Maurer Rose</h2>
-        <pre>r = sin(n theta)
-connect the points at theta = k d degrees, k = 0..360</pre>
-        <p class="params">n = 6, d = 71</p>
-        <p>Start with the rose curve r = sin(6 theta), then ignore it and walk around it in jumps of 71 degrees, joining each landing spot with a straight line. The rose (in red) is hidden inside its own web.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/maurer.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="phyllotaxis">
-      <a class="frame" href="art/phyllotaxis.png"><img src="art/phyllotaxis.jpg" alt="Phyllotaxis" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 8</span>
-        <h2>Phyllotaxis</h2>
-        <pre>theta_k = k * 137.508 degrees
-r_k = sqrt(k)</pre>
-        <p class="params">1,500 seeds, golden angle</p>
-        <p>How a sunflower packs its seeds. Each new seed is placed one golden angle around from the last. Because the golden ratio is the &#x27;most irrational&#x27; number, the seeds never line up into gaps, and the spiral families you see come in Fibonacci numbers.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/phyllotaxis.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="buddhabrot">
-      <a class="frame" href="art/buddhabrot.png"><img src="art/buddhabrot.jpg" alt="Buddhabrot" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 9</span>
-        <h2>Buddhabrot</h2>
-        <pre>z&#x27; = z^2 + c,  z_0 = 0
-plot every z along the orbits that escape</pre>
-        <p class="params">12 million samples of c; orbits escaping in 200-1000 steps paint orange, 40-200 green, 8-40 blue</p>
-        <p>The Mandelbrot set turned inside out. Instead of coloring each c by whether it escapes, I follow the points that do escape and plot every place their orbit visits on the way out. Slow escapes paint orange, quick ones blue. Turned on its side, a seated figure appears.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/buddhabrot.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="aizawa">
-      <a class="frame" href="art/aizawa.png"><img src="art/aizawa.jpg" alt="Aizawa Attractor" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 10</span>
-        <h2>Aizawa Attractor</h2>
-        <pre>dx/dt = (z - b) x - d y
-dy/dt = d x + (z - b) y
-dz/dt = c + a z - z^3/3 - (x^2 + y^2)(1 + e z) + f z x^3</pre>
-        <p class="params">a = 0.95, b = 0.7, c = 0.6, d = 3.5, e = 0.25, f = 0.1, 300 particles</p>
-        <p>Particles spiral around a sphere-like shell, get pulled up a narrow tube through the middle, and spill back over the top. Seen from the side and slightly above, the paths look like a spun-glass apple.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/aizawa.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="newton">
-      <a class="frame" href="art/newton.png"><img src="art/newton.jpg" alt="Newton Fractal" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 11</span>
-        <h2>Newton Fractal</h2>
-        <pre>z&#x27; = z - p(z) / p&#x27;(z)
-p(z) = z^3 - 1</pre>
-        <p class="params">60 iterations, colored by which root each point reaches</p>
-        <p>Newton&#x27;s method finds roots by sliding down tangent lines. Start it everywhere on the complex plane and color each point by which of the three cube roots of 1 it lands on. Between any two colors, the third always squeezes in, forever.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/newton.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="ikeda">
-      <a class="frame" href="art/ikeda.png"><img src="art/ikeda.jpg" alt="Ikeda Map" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 12</span>
-        <h2>Ikeda Map</h2>
-        <pre>t = 0.4 - 6 / (1 + x^2 + y^2)
-x&#x27; = 1 + u (x cos t - y sin t)
-y&#x27; = u (x sin t + y cos t)</pre>
-        <p class="params">u = 0.9, 10 million points</p>
-        <p>A model of light circling a ring-shaped laser cavity, losing a little energy and picking up a twist on every lap. The twist depends on how far from the center the light is, which is enough to fold the orbit into this curling wave.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/ikeda.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="grayscott">
-      <a class="frame" href="art/grayscott.png"><img src="art/grayscott.jpg" alt="Gray-Scott Reaction-Diffusion" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 13</span>
-        <h2>Gray-Scott Reaction-Diffusion</h2>
-        <pre>du/dt = Du lap(u) - u v^2 + F (1 - u)
-dv/dt = Dv lap(v) + u v^2 - (F + k) v</pre>
-        <p class="params">Du = 0.16, Dv = 0.08, F = 0.029, k = 0.057, 10,000 steps on a 300 x 300 grid</p>
-        <p>Two imaginary chemicals: one is fed in, the other eats it and reproduces. Both spread out, at different speeds. Starting from a few random specks, that balance grows into the same maze-like stripes you see on fish, coral and fingerprints.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/grayscott.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="hopalong">
-      <a class="frame" href="art/hopalong.png"><img src="art/hopalong.jpg" alt="Hopalong" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 14</span>
-        <h2>Hopalong</h2>
-        <pre>x&#x27; = y - sign(x) sqrt(|b x - c|)
-y&#x27; = a - x</pre>
-        <p class="params">a = 1.1, b = 0.5, c = 1, 4 million steps from (0, 0), colored by time</p>
-        <p>Barry Martin&#x27;s map from the 1986 Scientific American. One point hops around the plane four million times. It never repeats, but it keeps returning to the same family of tiles, and coloring it by time shows the pattern slowly growing outward.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/hopalong.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="chaosgame">
-      <a class="frame" href="art/chaosgame.png"><img src="art/chaosgame.jpg" alt="Chaos Game" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 15</span>
-        <h2>Chaos Game</h2>
-        <pre>pick a random corner of a pentagon (never the same one twice in a row)
-p&#x27; = p + (corner - p) / 2</pre>
-        <p class="params">5 corners, jump ratio 1/2, 10 million points</p>
-        <p>Pick a corner of a pentagon at random and move halfway toward it. Repeat. With no rules the points fill the shape with mush, but one small restriction (don&#x27;t pick the same corner twice in a row) is enough to carve out this lace. Each point takes the color of its last corner.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/chaosgame.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="sandpile">
-      <a class="frame" href="art/sandpile.png"><img src="art/sandpile.jpg" alt="Abelian Sandpile" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 16</span>
-        <h2>Abelian Sandpile</h2>
-        <pre>drop N grains on one cell
-any cell with 4 or more grains gives 1 to each neighbor</pre>
-        <p class="params">N = 2^16 grains, colored by 0, 1, 2 or 3 grains left</p>
-        <p>Pour sand onto a single square of a grid. Whenever a square holds four grains it topples, passing one to each neighbor, which may topple in turn. When everything finally settles, this fractal of nested triangles and ovals is what&#x27;s left. The order of topplings doesn&#x27;t matter; the result is always identical.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/sandpile.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="mandelbrot">
-      <a class="frame" href="art/mandelbrot.png"><img src="art/mandelbrot.jpg" alt="Seahorse Valley" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 17</span>
-        <h2>Seahorse Valley</h2>
-        <pre>z&#x27; = z^2 + c,  z_0 = 0
-c = the pixel</pre>
-        <p class="params">centered on -0.7453 + 0.1127i, about 1/500th the width of the full set, 1,500 iterations</p>
-        <p>A zoom into the Mandelbrot set, in the crease between its main body and the big round bulb to the left. Every swirl here is made of smaller swirls, and tiny complete copies of the whole set are hidden along the filaments.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/mandelbrot.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="quasicrystal">
-      <a class="frame" href="art/quasicrystal.png"><img src="art/quasicrystal.jpg" alt="Quasicrystal" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 18</span>
-        <h2>Quasicrystal</h2>
-        <pre>f(x, y) = sum over k = 0..6 of cos(x cos(k pi/7) + y sin(k pi/7))</pre>
-        <p class="params">7 plane waves, 7-fold symmetry</p>
-        <p>Seven flat ripples crossing at equal angles. Two, three, four or six waves would make a repeating tiling, but seven can&#x27;t: the pattern has perfect sevenfold symmetry around the center and yet never repeats anywhere, like the quasicrystals that won the 2011 Nobel Prize in Chemistry.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/quasicrystal.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="standardmap">
-      <a class="frame" href="art/standardmap.png"><img src="art/standardmap.jpg" alt="Standard Map" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 19</span>
-        <h2>Standard Map</h2>
-        <pre>p&#x27; = p + K sin(theta)
-theta&#x27; = theta + p&#x27;      (both mod 2 pi)</pre>
-        <p class="params">K = 0.97, 700 orbits of 2,500 kicks each, one color per orbit</p>
-        <p>A spinning rotor that gets kicked at regular intervals. Each color is one starting condition followed for 2,500 kicks. Some orbits stay on smooth curves or circle inside islands; others scatter across a chaotic sea, drawn in slate. K is set just below the point where the last smooth barrier breaks.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/standardmap.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="apollonian">
-      <a class="frame" href="art/apollonian.png"><img src="art/apollonian.jpg" alt="Apollonian Gasket" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 20</span>
-        <h2>Apollonian Gasket</h2>
-        <pre>k4 = 2 (k1 + k2 + k3) - k4_old
-k4 z4 = 2 (k1 z1 + k2 z2 + k3 z3) - k4_old z4_old</pre>
-        <p class="params">curvatures from Descartes&#x27; circle theorem, circles down to 1 pixel</p>
-        <p>Fill a circle with three touching circles, then fill every curved triangular gap with the largest circle that fits, forever. Descartes worked out the size of each new circle in 1643; a later complex-number version also gives its position. The smaller the circle, the brighter and warmer its color.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/apollonian.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="lyapunov">
-      <a class="frame" href="art/lyapunov.png"><img src="art/lyapunov.jpg" alt="Lyapunov Fractal" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 21</span>
-        <h2>Lyapunov Fractal</h2>
-        <pre>x&#x27; = r x (1 - x),  r alternates between a and b as &#x27;BBBBBBAAAAAA&#x27;
-lambda = average of log |r (1 - 2x)|</pre>
-        <p class="params">a from 2.5 to 3.4 (across), b from 3.4 to 4.0 (up), 600 steps</p>
-        <p>The logistic map is the simplest model of a population that grows until it runs out of food. Here the growth rate flips between two values in a fixed rhythm. Gold regions settle down to a steady pattern; the dark blue regions are chaos. The pattern was named Zircon Zity by Mario Markus, who first drew these around 1990.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/lyapunov.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="dragon">
-      <a class="frame" href="art/dragon.png"><img src="art/dragon.jpg" alt="Dragon Curves" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 22</span>
-        <h2>Dragon Curves</h2>
-        <pre>fold a strip of paper in half n times, unfold every crease to 90 degrees
-turn n is left if ((n &amp; -n) &lt;&lt; 1) &amp; n == 0, else right</pre>
-        <p class="params">4 curves of 2^11 segments, rotated 90 degrees apart, corners cut</p>
-        <p>Fold a strip of paper in half again and again, then open each fold to a right angle. The strip never crosses itself, and four copies turned a quarter turn apart fit together around a point with no gaps and no overlaps. Cutting each corner on a diagonal keeps neighboring turns from touching, so you can follow every strip from end to end.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/dragon.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="domain">
-      <a class="frame" href="art/domain.png"><img src="art/domain.jpg" alt="Domain Coloring" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 23</span>
-        <h2>Domain Coloring</h2>
-        <pre>f(z) = (z^2 - 1)(z - 2 - i)^2 / (z^2 + 2 + 2i)
-hue = arg f(z),  brightness bands = log |f(z)|</pre>
-        <p class="params">-3 to 3 on both axes</p>
-        <p>A way to draw a complex function, which takes a 2D input to a 2D output and can&#x27;t be graphed the usual way. Color shows the direction of f(z) and the shaded rings show its size. Zeros are where all the colors meet; the double zero at 2 + i spins through the rainbow twice. Poles look the same with the colors running backwards.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/domain.py">source</a>
-      </div>
-    </article>
-    <article class="piece" id="hilbert">
-      <a class="frame" href="art/hilbert.png"><img src="art/hilbert.jpg" alt="Hilbert Curve" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. 24</span>
-        <h2>Hilbert Curve</h2>
-        <pre>H(n) = four copies of H(n - 1), two rotated, joined end to end</pre>
-        <p class="params">order 6: one line through all 4,096 cells of a 64 x 64 grid</p>
-        <p>A single unbroken line that visits every square of a grid exactly once, built by joining four smaller copies of itself. Keep going and it fills the whole square. Color follows the line from start to finish, and the blocks show the useful part: cells that are close on the line are close on the page.</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/hilbert.py">source</a>
-      </div>
-    </article>
+<main class="hall">
+  <a class="exhibit" href="pieces/clifford.html">
+    <span class="frame"><img src="art/clifford.jpg" alt="Clifford Attractor" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 1</span>
+      <h2>Clifford Attractor</h2>
+      <span class="kind">Strange attractor</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/dejong.html">
+    <span class="frame"><img src="art/dejong.jpg" alt="Peter de Jong Attractor" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 2</span>
+      <h2>Peter de Jong Attractor</h2>
+      <span class="kind">Strange attractor</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/lorenz.html">
+    <span class="frame"><img src="art/lorenz.jpg" alt="Lorenz Attractor" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 3</span>
+      <h2>Lorenz Attractor</h2>
+      <span class="kind">Chaotic flow</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/julia.html">
+    <span class="frame"><img src="art/julia.jpg" alt="Julia Set" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 4</span>
+      <h2>Julia Set</h2>
+      <span class="kind">Escape-time fractal</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/fern.html">
+    <span class="frame"><img src="art/fern.jpg" alt="Barnsley Fern" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 5</span>
+      <h2>Barnsley Fern</h2>
+      <span class="kind">Iterated function system</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/harmonograph.html">
+    <span class="frame"><img src="art/harmonograph.jpg" alt="Harmonograph" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 6</span>
+      <h2>Harmonograph</h2>
+      <span class="kind">Damped oscillation</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/maurer.html">
+    <span class="frame"><img src="art/maurer.jpg" alt="Maurer Rose" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 7</span>
+      <h2>Maurer Rose</h2>
+      <span class="kind">Polar curve</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/phyllotaxis.html">
+    <span class="frame"><img src="art/phyllotaxis.jpg" alt="Phyllotaxis" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 8</span>
+      <h2>Phyllotaxis</h2>
+      <span class="kind">Botanical pattern</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/buddhabrot.html">
+    <span class="frame"><img src="art/buddhabrot.jpg" alt="Buddhabrot" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 9</span>
+      <h2>Buddhabrot</h2>
+      <span class="kind">Escape-time fractal</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/aizawa.html">
+    <span class="frame"><img src="art/aizawa.jpg" alt="Aizawa Attractor" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 10</span>
+      <h2>Aizawa Attractor</h2>
+      <span class="kind">Chaotic flow</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/newton.html">
+    <span class="frame"><img src="art/newton.jpg" alt="Newton Fractal" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 11</span>
+      <h2>Newton Fractal</h2>
+      <span class="kind">Basins of attraction</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/ikeda.html">
+    <span class="frame"><img src="art/ikeda.jpg" alt="Ikeda Map" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 12</span>
+      <h2>Ikeda Map</h2>
+      <span class="kind">Strange attractor</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/grayscott.html">
+    <span class="frame"><img src="art/grayscott.jpg" alt="Gray-Scott Reaction-Diffusion" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 13</span>
+      <h2>Gray-Scott Reaction-Diffusion</h2>
+      <span class="kind">Reaction-diffusion</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/hopalong.html">
+    <span class="frame"><img src="art/hopalong.jpg" alt="Hopalong" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 14</span>
+      <h2>Hopalong</h2>
+      <span class="kind">Orbit of a map</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/chaosgame.html">
+    <span class="frame"><img src="art/chaosgame.jpg" alt="Chaos Game" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 15</span>
+      <h2>Chaos Game</h2>
+      <span class="kind">Chaos game</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/sandpile.html">
+    <span class="frame"><img src="art/sandpile.jpg" alt="Abelian Sandpile" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 16</span>
+      <h2>Abelian Sandpile</h2>
+      <span class="kind">Cellular automaton</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/mandelbrot.html">
+    <span class="frame"><img src="art/mandelbrot.jpg" alt="Seahorse Valley" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 17</span>
+      <h2>Seahorse Valley</h2>
+      <span class="kind">Escape-time fractal</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/quasicrystal.html">
+    <span class="frame"><img src="art/quasicrystal.jpg" alt="Quasicrystal" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 18</span>
+      <h2>Quasicrystal</h2>
+      <span class="kind">Wave interference</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/standardmap.html">
+    <span class="frame"><img src="art/standardmap.jpg" alt="Standard Map" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 19</span>
+      <h2>Standard Map</h2>
+      <span class="kind">Hamiltonian chaos</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/apollonian.html">
+    <span class="frame"><img src="art/apollonian.jpg" alt="Apollonian Gasket" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 20</span>
+      <h2>Apollonian Gasket</h2>
+      <span class="kind">Circle packing</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/lyapunov.html">
+    <span class="frame"><img src="art/lyapunov.jpg" alt="Lyapunov Fractal" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 21</span>
+      <h2>Lyapunov Fractal</h2>
+      <span class="kind">Stability map</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/dragon.html">
+    <span class="frame"><img src="art/dragon.jpg" alt="Dragon Curves" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 22</span>
+      <h2>Dragon Curves</h2>
+      <span class="kind">Plane-filling curve</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/domain.html">
+    <span class="frame"><img src="art/domain.jpg" alt="Domain Coloring" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 23</span>
+      <h2>Domain Coloring</h2>
+      <span class="kind">Complex function</span>
+    </div>
+  </a>
+  <a class="exhibit" href="pieces/hilbert.html">
+    <span class="frame"><img src="art/hilbert.jpg" alt="Hilbert Curve" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. 24</span>
+      <h2>Hilbert Curve</h2>
+      <span class="kind">Space-filling curve</span>
+    </div>
+  </a>
 </main>
 <footer>
   Generated with Python and numpy. Code and instructions at

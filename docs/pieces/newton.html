@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Newton Fractal | Math Art Gallery</title>
+<meta name="description" content="Newton&#x27;s method finds roots by sliding down tangent lines. Start it everywhere on the complex plane and color each point by which of the three cube roots of 1 it lands on. Between any two colors, the third always squeezes in, forever.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="ikeda.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>11 / 24</span>
+</nav>
+
+<a class="arrow prev" href="aizawa.html" title="Aizawa Attractor" aria-label="Previous: Aizawa Attractor">&lsaquo;</a>
+<a class="arrow next" href="ikeda.html" title="Ikeda Map" aria-label="Next: Ikeda Map">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/newton.png" title="Open the full resolution image">
+    <img src="../art/newton.png" width="1600" height="1600" alt="Newton Fractal">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 11</span>
+    <h1>Newton Fractal</h1>
+    <div class="kind">Basins of attraction, 2026. Python and numpy.</div>
+    <pre>z&#x27; = z - p(z) / p&#x27;(z)
+p(z) = z^3 - 1</pre>
+    <p class="lede">Newton&#x27;s method finds roots by sliding down tangent lines. Start it everywhere on the complex plane and color each point by which of the three cube roots of 1 it lands on. Between any two colors, the third always squeezes in, forever.</p>
+    <p>Newton&#x27;s method is a 17th century technique for finding where a function equals zero: make a guess, follow the tangent line down to where it crosses zero, and repeat. For most starting points it homes in quickly. In 1879 Arthur Cayley asked which root each starting point in the complex plane would reach, and found the question surprisingly hard for cubics.</p>
+    <p>This picture is the answer. Each color is one root of z^3 - 1, and the shading shows how many steps it took to get there. The boundaries are fractal: anywhere two colors meet, the third is also present, no matter how far you zoom in.</p>
+    <p class="params">60 iterations, colored by which root each point reaches</p>
+    <p class="links"><a href="../art/newton.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/newton.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="aizawa.html"><small>&larr; Previous</small>Aizawa Attractor</a>
+    <a class="next" href="ikeda.html"><small>Next &rarr;</small>Ikeda Map</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "aizawa.html";
+    else if (e.key === "ArrowRight") location.href = "ikeda.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

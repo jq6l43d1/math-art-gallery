@@ -15,6 +15,21 @@ CAPTION = (
     "small restriction (don't pick the same corner twice in a row) is enough "
     "to carve out this lace. Each point takes the color of its last corner."
 )
+KIND = "Chaos game"
+ABOUT = [
+    (
+        "Michael Barnsley gave the chaos game its name. With the three corners of "
+        "a triangle and no rules at all, the dots form the Sierpinski triangle. "
+        "Adding rules about which corners may follow which unlocks a whole family "
+        "of other fractals from the same simple game."
+    ),
+    (
+        "A quarter of a million points play at once for 60 rounds, and the first "
+        "20 rounds are thrown away while they settle. Each point is colored by "
+        "the corner it just jumped toward, and the five colors are multiplied "
+        "together like layers of transparent ink."
+    ),
+]
 
 COLORS = ["#d1495b", "#edae49", "#00798c", "#30638e", "#6a4c93"]
 

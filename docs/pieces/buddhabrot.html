@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buddhabrot | Math Art Gallery</title>
+<meta name="description" content="The Mandelbrot set turned inside out. Instead of coloring each c by whether it escapes, I follow the points that do escape and plot every place their orbit visits on the way out. Slow escapes paint orange, quick ones blue. Turned on its side, a seated figure appears.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="aizawa.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>9 / 24</span>
+</nav>
+
+<a class="arrow prev" href="phyllotaxis.html" title="Phyllotaxis" aria-label="Previous: Phyllotaxis">&lsaquo;</a>
+<a class="arrow next" href="aizawa.html" title="Aizawa Attractor" aria-label="Next: Aizawa Attractor">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/buddhabrot.png" title="Open the full resolution image">
+    <img src="../art/buddhabrot.png" width="1600" height="1600" alt="Buddhabrot">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 9</span>
+    <h1>Buddhabrot</h1>
+    <div class="kind">Escape-time fractal, 2026. Python and numpy.</div>
+    <pre>z&#x27; = z^2 + c,  z_0 = 0
+plot every z along the orbits that escape</pre>
+    <p class="lede">The Mandelbrot set turned inside out. Instead of coloring each c by whether it escapes, I follow the points that do escape and plot every place their orbit visits on the way out. Slow escapes paint orange, quick ones blue. Turned on its side, a seated figure appears.</p>
+    <p>Melinda Green described this technique in 1993. The usual picture of the Mandelbrot set throws away the path each point takes on its way to infinity and keeps only the step count. The Buddhabrot keeps the paths and stacks them up, revealing a figure that was hiding in the same equation all along.</p>
+    <p>Giving orbits of different lengths their own colors is called a Nebulabrot, because the result looks like a space telescope photo. Twelve million random values of c are tested; only those that escape after at least 8 steps are replayed and drawn. It is the slowest piece in the gallery by far.</p>
+    <p class="params">12 million samples of c; orbits escaping in 200-1000 steps paint orange, 40-200 green, 8-40 blue</p>
+    <p class="links"><a href="../art/buddhabrot.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/buddhabrot.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="phyllotaxis.html"><small>&larr; Previous</small>Phyllotaxis</a>
+    <a class="next" href="aizawa.html"><small>Next &rarr;</small>Aizawa Attractor</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "phyllotaxis.html";
+    else if (e.key === "ArrowRight") location.href = "aizawa.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

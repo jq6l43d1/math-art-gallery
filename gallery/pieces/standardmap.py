@@ -15,6 +15,22 @@ CAPTION = (
     "chaotic sea, drawn in slate. K is set just below the point where the last smooth "
     "barrier breaks."
 )
+KIND = "Hamiltonian chaos"
+ABOUT = [
+    (
+        "Boris Chirikov studied this map in 1969 as a model of charged particles "
+        "in magnetic fields. It became the standard example of how order breaks "
+        "down into chaos in systems that conserve energy, and many physical "
+        "problems reduce to it, which is where the name comes from."
+    ),
+    (
+        "As K grows, the smooth curves that stop orbits from wandering break up "
+        "one by one. The last one breaks at K of about 0.9716. Each orbit's "
+        "Lyapunov exponent is estimated as it is computed, and the chaotic orbits "
+        "are drawn in a muted slate so the surviving islands and curves stand "
+        "out."
+    ),
+]
 
 
 def render(size, seed=0):

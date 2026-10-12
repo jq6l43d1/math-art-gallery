@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gray-Scott Reaction-Diffusion | Math Art Gallery</title>
+<meta name="description" content="Two imaginary chemicals: one is fed in, the other eats it and reproduces. Both spread out, at different speeds. Starting from a few random specks, that balance grows into the same maze-like stripes you see on fish, coral and fingerprints.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="hopalong.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>13 / 24</span>
+</nav>
+
+<a class="arrow prev" href="ikeda.html" title="Ikeda Map" aria-label="Previous: Ikeda Map">&lsaquo;</a>
+<a class="arrow next" href="hopalong.html" title="Hopalong" aria-label="Next: Hopalong">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/grayscott.png" title="Open the full resolution image">
+    <img src="../art/grayscott.png" width="1600" height="1600" alt="Gray-Scott Reaction-Diffusion">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 13</span>
+    <h1>Gray-Scott Reaction-Diffusion</h1>
+    <div class="kind">Reaction-diffusion, 2026. Python and numpy.</div>
+    <pre>du/dt = Du lap(u) - u v^2 + F (1 - u)
+dv/dt = Dv lap(v) + u v^2 - (F + k) v</pre>
+    <p class="lede">Two imaginary chemicals: one is fed in, the other eats it and reproduces. Both spread out, at different speeds. Starting from a few random specks, that balance grows into the same maze-like stripes you see on fish, coral and fingerprints.</p>
+    <p>Alan Turing suggested in 1952 that two chemicals reacting and spreading at different speeds could produce the spots and stripes seen on animals. The Gray-Scott model, from chemists Peter Gray and Stephen Scott in the 1980s, is one of the simplest systems that does it.</p>
+    <p>Two numbers, the feed rate F and the kill rate k, pick the pattern. Small changes give spots that divide like cells, travelling waves, or, as here, a labyrinth of stripes. The simulation runs 10,000 steps on a 300 by 300 grid and is scaled up smoothly for display.</p>
+    <p class="params">Du = 0.16, Dv = 0.08, F = 0.029, k = 0.057, 10,000 steps on a 300 x 300 grid</p>
+    <p class="links"><a href="../art/grayscott.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/grayscott.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="ikeda.html"><small>&larr; Previous</small>Ikeda Map</a>
+    <a class="next" href="hopalong.html"><small>Next &rarr;</small>Hopalong</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "ikeda.html";
+    else if (e.key === "ArrowRight") location.href = "hopalong.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

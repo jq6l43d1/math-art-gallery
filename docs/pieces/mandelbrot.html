@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seahorse Valley | Math Art Gallery</title>
+<meta name="description" content="A zoom into the Mandelbrot set, in the crease between its main body and the big round bulb to the left. Every swirl here is made of smaller swirls, and tiny complete copies of the whole set are hidden along the filaments.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="quasicrystal.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>17 / 24</span>
+</nav>
+
+<a class="arrow prev" href="sandpile.html" title="Abelian Sandpile" aria-label="Previous: Abelian Sandpile">&lsaquo;</a>
+<a class="arrow next" href="quasicrystal.html" title="Quasicrystal" aria-label="Next: Quasicrystal">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/mandelbrot.png" title="Open the full resolution image">
+    <img src="../art/mandelbrot.png" width="1600" height="1600" alt="Seahorse Valley">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 17</span>
+    <h1>Seahorse Valley</h1>
+    <div class="kind">Escape-time fractal, 2026. Python and numpy.</div>
+    <pre>z&#x27; = z^2 + c,  z_0 = 0
+c = the pixel</pre>
+    <p class="lede">A zoom into the Mandelbrot set, in the crease between its main body and the big round bulb to the left. Every swirl here is made of smaller swirls, and tiny complete copies of the whole set are hidden along the filaments.</p>
+    <p>Benoit Mandelbrot made the set famous in 1980 with computer plots made at IBM. It is the set of numbers c for which z^2 + c, repeated starting from zero, never runs off to infinity. Its boundary is so tangled that it has the same dimension as a filled-in area.</p>
+    <p>Seahorse Valley is the narrow gap between the main heart-shaped body and the round bulb to its left. This view is about 500 times narrower than the whole set and uses up to 1,500 iterations per pixel. The colors cycle through a cosine palette as the escape count rises, so detail close to the set gets as much color as the background.</p>
+    <p class="params">centered on -0.7453 + 0.1127i, about 1/500th the width of the full set, 1,500 iterations</p>
+    <p class="links"><a href="../art/mandelbrot.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/mandelbrot.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="sandpile.html"><small>&larr; Previous</small>Abelian Sandpile</a>
+    <a class="next" href="quasicrystal.html"><small>Next &rarr;</small>Quasicrystal</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "sandpile.html";
+    else if (e.key === "ArrowRight") location.href = "quasicrystal.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

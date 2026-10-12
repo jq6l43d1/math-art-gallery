@@ -1,0 +1,212 @@
+:root {
+  --wall: #26221f;
+  --wall-dark: #1a1715;
+  --mat: #fbfaf7;
+  --frame: #121110;
+  --text: #ece6df;
+  --muted: #a39a90;
+  --card: #f4efe6;
+  --card-text: #2a2622;
+  --card-muted: #7a7066;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--wall-dark); }
+
+body {
+  margin: 0;
+  color: var(--text);
+  font: 17px/1.65 Georgia, "Times New Roman", serif;
+  background: linear-gradient(var(--wall), var(--wall-dark)) fixed;
+}
+
+a { color: inherit; }
+
+/* The frame: black moulding, white mat, artwork. */
+.frame {
+  display: inline-block;
+  background: var(--mat);
+  padding: clamp(18px, 4.5%, 56px);
+  border: 10px solid var(--frame);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 0 1px #000;
+}
+.frame img { display: block; width: 100%; height: auto; }
+
+/* ---------- Entrance hall (index) ---------- */
+
+.entrance {
+  text-align: center;
+  padding: 6rem 1.5rem 3.5rem;
+  background: radial-gradient(ellipse 55% 70% at 50% 0%, rgba(255, 236, 210, 0.10), transparent 70%);
+}
+.entrance h1 {
+  margin: 0;
+  font-weight: normal;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+}
+.entrance p { color: var(--muted); max-width: 40rem; margin: 1.2rem auto 0; }
+.entrance .start {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid var(--muted);
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+.entrance .start:hover { background: rgba(255, 255, 255, 0.06); }
+
+.hall {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 4rem 3rem;
+}
+.exhibit {
+  text-decoration: none;
+  text-align: center;
+}
+.exhibit .frame {
+  width: 100%;
+  border-width: 7px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.exhibit:hover .frame {
+  transform: translateY(-5px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7), 0 0 0 1px #000;
+}
+.exhibit .label { margin-top: 1.2rem; }
+.exhibit .no, .placard .no {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.exhibit .no { color: var(--muted); }
+.exhibit h2 { margin: 0.15rem 0 0; font-weight: normal; font-size: 1.2rem; }
+.exhibit .kind { color: var(--muted); font-style: italic; font-size: 0.9rem; }
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem 1rem 4rem;
+  font-size: 0.9rem;
+}
+
+/* ---------- A single room (one piece) ---------- */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: linear-gradient(rgba(26, 23, 21, 0.95), rgba(26, 23, 21, 0));
+}
+.topbar a { text-decoration: none; }
+.topbar a:hover { color: var(--text); }
+
+.room {
+  min-height: 100vh;
+  padding: 5.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* A spotlight from the ceiling onto the piece. */
+  background: radial-gradient(ellipse 45% 55% at 50% 8%, rgba(255, 236, 210, 0.13), transparent 75%);
+}
+.room .frame { max-width: min(92vw, 940px); }
+.room .frame img {
+  width: auto;
+  max-width: 100%;
+  max-height: min(60vh, 820px);
+}
+
+.placard {
+  width: 100%;
+  max-width: 640px;
+  margin: 3.5rem auto 0;
+  padding: 2.2rem 2.6rem 2rem;
+  background: var(--card);
+  color: var(--card-text);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+.placard .no { color: var(--card-muted); }
+.placard h1 { margin: 0.2rem 0 0; font-weight: normal; font-size: 2rem; line-height: 1.2; }
+.placard .kind { margin: 0.2rem 0 1.4rem; color: var(--card-muted); font-style: italic; }
+.placard pre {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1.1rem;
+  background: #e8e0d2;
+  border-left: 3px solid #b9ab97;
+  font: 0.85rem/1.7 ui-monospace, Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+}
+.placard p { margin: 0 0 1rem; }
+.placard p.lede { font-size: 1.08rem; }
+.placard .params {
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid #d8cfc1;
+  color: var(--card-muted);
+  font-size: 0.88rem;
+}
+.placard .links { font-size: 0.88rem; color: var(--card-muted); }
+.placard .links a { color: var(--card-text); }
+
+.walk {
+  width: 100%;
+  max-width: 640px;
+  margin: 2.5rem auto 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+.walk a { text-decoration: none; color: var(--muted); }
+.walk a:hover { color: var(--text); }
+.walk .next { text-align: right; }
+.walk small {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Big arrows at the sides of the room on wide screens. */
+.arrow {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  padding: 1.5rem 1rem;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--muted);
+  text-decoration: none;
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+.arrow:hover { opacity: 1; color: var(--text); }
+.arrow.prev { left: 0.5rem; }
+.arrow.next { right: 0.5rem; }
+
+@media (max-width: 800px) {
+  .arrow { display: none; }
+  .placard { padding: 1.6rem 1.4rem; }
+  .room { padding-top: 4.5rem; }
+}

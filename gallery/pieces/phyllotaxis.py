@@ -15,6 +15,22 @@ CAPTION = (
     "irrational' number, the seeds never line up into gaps, and the spiral "
     "families you see come in Fibonacci numbers."
 )
+KIND = "Botanical pattern"
+ABOUT = [
+    (
+        "The golden angle, about 137.5 degrees, splits a full turn in the golden "
+        "ratio. In 1979 Helmut Vogel showed that placing seeds one golden angle "
+        "apart, with the radius growing like the square root of the seed number, "
+        "reproduces the head of a sunflower."
+    ),
+    (
+        "Count the spirals curving one way and then the other and you get "
+        "neighboring Fibonacci numbers, such as 34 and 55. Change the angle by a "
+        "fraction of a degree and the seeds collapse into straight spokes with "
+        "gaps between them. The color runs from the first seed at the center to "
+        "the last one at the rim."
+    ),
+]
 
 
 def render(size, seed=0):

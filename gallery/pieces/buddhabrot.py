@@ -14,6 +14,23 @@ CAPTION = (
     "place their orbit visits on the way out. Slow escapes paint orange, "
     "quick ones blue. Turned on its side, a seated figure appears."
 )
+KIND = "Escape-time fractal"
+ABOUT = [
+    (
+        "Melinda Green described this technique in 1993. The usual picture of the "
+        "Mandelbrot set throws away the path each point takes on its way to "
+        "infinity and keeps only the step count. The Buddhabrot keeps the paths "
+        "and stacks them up, revealing a figure that was hiding in the same "
+        "equation all along."
+    ),
+    (
+        "Giving orbits of different lengths their own colors is called a "
+        "Nebulabrot, because the result looks like a space telescope photo. "
+        "Twelve million random values of c are tested; only those that escape "
+        "after at least 8 steps are replayed and drawn. It is the slowest piece "
+        "in the gallery by far."
+    ),
+]
 
 # (shortest escape, longest escape, color)
 BANDS = [(200, 1000, "#ff8a50"), (40, 200, "#6fe3a0"), (8, 40, "#4f7dff")]

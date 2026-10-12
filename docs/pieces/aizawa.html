@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aizawa Attractor | Math Art Gallery</title>
+<meta name="description" content="Particles spiral around a sphere-like shell, get pulled up a narrow tube through the middle, and spill back over the top. Seen from the side and slightly above, the paths look like a spun-glass apple.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="newton.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>10 / 24</span>
+</nav>
+
+<a class="arrow prev" href="buddhabrot.html" title="Buddhabrot" aria-label="Previous: Buddhabrot">&lsaquo;</a>
+<a class="arrow next" href="newton.html" title="Newton Fractal" aria-label="Next: Newton Fractal">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/aizawa.png" title="Open the full resolution image">
+    <img src="../art/aizawa.png" width="1600" height="1600" alt="Aizawa Attractor">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 10</span>
+    <h1>Aizawa Attractor</h1>
+    <div class="kind">Chaotic flow, 2026. Python and numpy.</div>
+    <pre>dx/dt = (z - b) x - d y
+dy/dt = d x + (z - b) y
+dz/dt = c + a z - z^3/3 - (x^2 + y^2)(1 + e z) + f z x^3</pre>
+    <p class="lede">Particles spiral around a sphere-like shell, get pulled up a narrow tube through the middle, and spill back over the top. Seen from the side and slightly above, the paths look like a spun-glass apple.</p>
+    <p>This system is usually credited to Yoji Aizawa. The first two equations spin each particle around the vertical axis at a constant speed while pushing it in or out depending on its height; the third equation controls the height. Together they wrap the paths around a shell and send them up the central tube.</p>
+    <p>Three hundred particles are each followed for 24 time units after a warm-up. Every step is split into smaller pieces so the paths render as continuous threads rather than dots. The camera is tilted slightly so you can see into the top of the shell.</p>
+    <p class="params">a = 0.95, b = 0.7, c = 0.6, d = 3.5, e = 0.25, f = 0.1, 300 particles</p>
+    <p class="links"><a href="../art/aizawa.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/aizawa.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="buddhabrot.html"><small>&larr; Previous</small>Buddhabrot</a>
+    <a class="next" href="newton.html"><small>Next &rarr;</small>Newton Fractal</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "buddhabrot.html";
+    else if (e.key === "ArrowRight") location.href = "newton.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

@@ -15,6 +15,23 @@ CAPTION = (
     "repeating loop, yet it always traces the same tangle of ribbons. Darker "
     "ink means more visits."
 )
+KIND = "Strange attractor"
+ABOUT = [
+    (
+        "The equations are named after Clifford Pickover, who popularized them in "
+        "his books on computer art. Each new point depends only on the one before "
+        "it, through two sines and two cosines. Change any of the four parameters "
+        "slightly and the picture changes completely, so hunting for good "
+        "parameter sets is half the fun."
+    ),
+    (
+        "Nothing here is drawn as a line. Ten million dots are counted into the "
+        "pixels of the canvas, and the counts go through a logarithm so the faint "
+        "outer veils and the dense knots both stay visible. The paper tone and "
+        "single ink color are a nod to the plotted version that got me started on "
+        "this gallery."
+    ),
+]
 
 
 def render(size, seed=0):

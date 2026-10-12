@@ -16,6 +16,23 @@ CAPTION = (
     "Within seconds they disagree completely about where they are, but all "
     "of them keep circling the same two wings."
 )
+KIND = "Chaotic flow"
+ABOUT = [
+    (
+        "In 1963 the meteorologist Edward Lorenz reduced a model of atmospheric "
+        "convection to three equations and found that tiny differences in the "
+        "starting conditions grew until two forecasts had nothing in common. That "
+        "observation, later nicknamed the butterfly effect, helped start the "
+        "field of chaos theory."
+    ),
+    (
+        "Here six particles begin about a thousandth of a unit apart, and each is "
+        "integrated with the fourth-order Runge-Kutta method for 80 time units. "
+        "Every step is split into twelve smaller pieces so the fast outer loops "
+        "draw as smooth lines instead of dots. The view is turned slightly so the "
+        "two wings don't overlap."
+    ),
+]
 
 
 def render(size, seed=0):

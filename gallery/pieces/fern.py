@@ -13,6 +13,21 @@ CAPTION = (
     "shift; one makes the stem, one makes each leaf a smaller copy of the "
     "whole, and two make the first left and right leaflets."
 )
+KIND = "Iterated function system"
+ABOUT = [
+    (
+        "Michael Barnsley used this fern in his 1988 book Fractals Everywhere to "
+        "show how little information a natural-looking shape needs. The whole "
+        "plant is encoded in 28 numbers: six coefficients and one probability for "
+        "each of four maps."
+    ),
+    (
+        "The probabilities only affect how evenly the fern fills in; the shape "
+        "itself is fixed by the maps. The render runs 200,000 points at once, "
+        "each choosing its own map at every step, and the brightness of each "
+        "pixel comes from how often it was landed on."
+    ),
+]
 
 # Each row: a, b, c, d, e, f, probability
 MAPS = np.array([

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dragon Curves | Math Art Gallery</title>
+<meta name="description" content="Fold a strip of paper in half again and again, then open each fold to a right angle. The strip never crosses itself, and four copies turned a quarter turn apart fit together around a point with no gaps and no overlaps. Cutting each corner on a diagonal keeps neighboring turns from touching, so you can follow every strip from end to end.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="domain.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>22 / 24</span>
+</nav>
+
+<a class="arrow prev" href="lyapunov.html" title="Lyapunov Fractal" aria-label="Previous: Lyapunov Fractal">&lsaquo;</a>
+<a class="arrow next" href="domain.html" title="Domain Coloring" aria-label="Next: Domain Coloring">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/dragon.png" title="Open the full resolution image">
+    <img src="../art/dragon.png" width="1600" height="1600" alt="Dragon Curves">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 22</span>
+    <h1>Dragon Curves</h1>
+    <div class="kind">Plane-filling curve, 2026. Python and numpy.</div>
+    <pre>fold a strip of paper in half n times, unfold every crease to 90 degrees
+turn n is left if ((n &amp; -n) &lt;&lt; 1) &amp; n == 0, else right</pre>
+    <p class="lede">Fold a strip of paper in half again and again, then open each fold to a right angle. The strip never crosses itself, and four copies turned a quarter turn apart fit together around a point with no gaps and no overlaps. Cutting each corner on a diagonal keeps neighboring turns from touching, so you can follow every strip from end to end.</p>
+    <p>NASA physicists John Heighway, Bruce Banks and William Harter found the dragon curve in the 1960s, and Martin Gardner wrote about it in his Mathematical Games column in 1967. It is the shape you get by folding a strip of paper in half again and again and opening every fold to a right angle.</p>
+    <p>Each curve here has 2,047 segments, and the direction of every turn can be read straight off the binary digits of its position. Four copies turned a quarter turn apart fit around a common point with no gaps and no overlaps, and copies of the dragon can go on to tile the whole plane.</p>
+    <p class="params">4 curves of 2^11 segments, rotated 90 degrees apart, corners cut</p>
+    <p class="links"><a href="../art/dragon.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/dragon.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="lyapunov.html"><small>&larr; Previous</small>Lyapunov Fractal</a>
+    <a class="next" href="domain.html"><small>Next &rarr;</small>Domain Coloring</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "lyapunov.html";
+    else if (e.key === "ArrowRight") location.href = "domain.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

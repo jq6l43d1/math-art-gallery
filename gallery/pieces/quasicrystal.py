@@ -14,6 +14,22 @@ CAPTION = (
     "anywhere, like the quasicrystals that won the 2011 Nobel Prize in "
     "Chemistry."
 )
+KIND = "Wave interference"
+ABOUT = [
+    (
+        "In 1982 Dan Shechtman looked at an aluminium-manganese alloy under an "
+        "electron microscope and saw a symmetry that crystallographers believed "
+        "was impossible. Materials like it are ordered but never periodic, and "
+        "for years many scientists refused to accept them."
+    ),
+    (
+        "This image is a sum of seven cosine waves, each tilted one seventh of a "
+        "half turn from the last. Anywhere you look you can find patches that "
+        "nearly repeat, but no shift maps the whole pattern exactly onto itself. "
+        "Passing the sum through a sine turns both peaks and troughs into bright "
+        "bands."
+    ),
+]
 
 
 def render(size, seed=0):

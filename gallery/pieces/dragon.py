@@ -16,6 +16,22 @@ CAPTION = (
     "overlaps. Cutting each corner on a diagonal keeps neighboring turns "
     "from touching, so you can follow every strip from end to end."
 )
+KIND = "Plane-filling curve"
+ABOUT = [
+    (
+        "NASA physicists John Heighway, Bruce Banks and William Harter found the "
+        "dragon curve in the 1960s, and Martin Gardner wrote about it in his "
+        "Mathematical Games column in 1967. It is the shape you get by folding a "
+        "strip of paper in half again and again and opening every fold to a right "
+        "angle."
+    ),
+    (
+        "Each curve here has 2,047 segments, and the direction of every turn can "
+        "be read straight off the binary digits of its position. Four copies "
+        "turned a quarter turn apart fit around a common point with no gaps and "
+        "no overlaps, and copies of the dragon can go on to tile the whole plane."
+    ),
+]
 
 PALETTES = [
     ("#ffd166", "#ef476f"),

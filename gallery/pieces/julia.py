@@ -13,6 +13,23 @@ CAPTION = (
     "that stay bounded forever form the set; the color outside shows how "
     "quickly each point escaped. The edge is infinitely detailed."
 )
+KIND = "Escape-time fractal"
+ABOUT = [
+    (
+        "Gaston Julia and Pierre Fatou studied these sets around 1918, decades "
+        "before anyone could draw one. Every complex number c gives a different "
+        "Julia set: some are solid connected shapes, others shatter into dust. "
+        "This c lies just outside the Mandelbrot set, so strictly speaking this "
+        "set is dust, but it is so close to the edge that at this size it still "
+        "looks like connected spirals."
+    ),
+    (
+        "The color outside the set comes from counting how many steps each point "
+        "takes to escape, with a small correction that turns the whole-number "
+        "count into a smooth value. Without it the image would show hard bands of "
+        "color instead of gradients."
+    ),
+]
 
 
 def render(size, seed=0):

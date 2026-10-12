@@ -15,6 +15,22 @@ CAPTION = (
     "tube through the middle, and spill back over the top. Seen from the "
     "side and slightly above, the paths look like a spun-glass apple."
 )
+KIND = "Chaotic flow"
+ABOUT = [
+    (
+        "This system is usually credited to Yoji Aizawa. The first two equations "
+        "spin each particle around the vertical axis at a constant speed while "
+        "pushing it in or out depending on its height; the third equation "
+        "controls the height. Together they wrap the paths around a shell and "
+        "send them up the central tube."
+    ),
+    (
+        "Three hundred particles are each followed for 24 time units after a "
+        "warm-up. Every step is split into smaller pieces so the paths render as "
+        "continuous threads rather than dots. The camera is tilted slightly so "
+        "you can see into the top of the shell."
+    ),
+]
 
 
 def render(size, seed=0):

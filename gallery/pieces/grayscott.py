@@ -15,6 +15,21 @@ CAPTION = (
     "random specks, that balance grows into the same maze-like stripes you "
     "see on fish, coral and fingerprints."
 )
+KIND = "Reaction-diffusion"
+ABOUT = [
+    (
+        "Alan Turing suggested in 1952 that two chemicals reacting and spreading "
+        "at different speeds could produce the spots and stripes seen on animals. "
+        "The Gray-Scott model, from chemists Peter Gray and Stephen Scott in the "
+        "1980s, is one of the simplest systems that does it."
+    ),
+    (
+        "Two numbers, the feed rate F and the kill rate k, pick the pattern. "
+        "Small changes give spots that divide like cells, travelling waves, or, "
+        "as here, a labyrinth of stripes. The simulation runs 10,000 steps on a "
+        "300 by 300 grid and is scaled up smoothly for display."
+    ),
+]
 
 
 def laplacian(a):

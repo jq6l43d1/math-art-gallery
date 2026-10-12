@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harmonograph | Math Art Gallery</title>
+<meta name="description" content="A Victorian drawing machine in software: a pen moved by swinging pendulums that slowly lose energy. Frequencies close to a simple ratio, but not quite, make the figure drift and spiral inward.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="maurer.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>6 / 24</span>
+</nav>
+
+<a class="arrow prev" href="fern.html" title="Barnsley Fern" aria-label="Previous: Barnsley Fern">&lsaquo;</a>
+<a class="arrow next" href="maurer.html" title="Maurer Rose" aria-label="Next: Maurer Rose">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/harmonograph.png" title="Open the full resolution image">
+    <img src="../art/harmonograph.png" width="1600" height="1600" alt="Harmonograph">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 6</span>
+    <h1>Harmonograph</h1>
+    <div class="kind">Damped oscillation, 2026. Python and numpy.</div>
+    <pre>x(t) = e^(-d1 t) sin(f1 t + p1) + e^(-d2 t) sin(f2 t + p2)
+y(t) = e^(-d3 t) sin(f3 t + p3) + e^(-d4 t) sin(f4 t + p4)</pre>
+    <p class="lede">A Victorian drawing machine in software: a pen moved by swinging pendulums that slowly lose energy. Frequencies close to a simple ratio, but not quite, make the figure drift and spiral inward.</p>
+    <p>Harmonographs were a popular parlor device in the Victorian era: a table with pendulums underneath, some swinging a pen and others swinging the paper. Friction slowly drains the swing, so the figure shrinks toward the center as it is drawn.</p>
+    <p>Here each axis is the sum of two damped sine waves. Frequencies of 3 and 2 alone would trace a stable figure over and over. Detuning one of them to 2.006 makes the figure rotate a little on every pass, which turns a single shape into layered petals. Six million points along the curve are counted into pixels, so overlapping strokes darken like real ink.</p>
+    <p class="params">f = 3, 2, 3, 2.006, damping around 0.005 per second</p>
+    <p class="links"><a href="../art/harmonograph.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/harmonograph.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="fern.html"><small>&larr; Previous</small>Barnsley Fern</a>
+    <a class="next" href="maurer.html"><small>Next &rarr;</small>Maurer Rose</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "fern.html";
+    else if (e.key === "ArrowRight") location.href = "maurer.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

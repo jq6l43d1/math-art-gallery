@@ -14,6 +14,21 @@ CAPTION = (
     "of added. The same idea, a different personality: it folds into smoke "
     "instead of ribbons. Rendered like a long exposure of light on black."
 )
+KIND = "Strange attractor"
+ABOUT = [
+    (
+        "Each new point depends only on the one before it, so the whole image is "
+        "one rule applied over and over. Most choices of a, b, c and d give a "
+        "thin loop or a shapeless cloud. A few, like these, give folded sheets "
+        "with real depth, and finding them is mostly patient trial and error."
+    ),
+    (
+        "This one is rendered as light instead of ink. The number of visits to "
+        "each pixel is mapped through a palette that runs from black through deep "
+        "blue to white, so the most visited folds glow like a long-exposure "
+        "photograph."
+    ),
+]
 
 
 def render(size, seed=0):

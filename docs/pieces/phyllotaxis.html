@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phyllotaxis | Math Art Gallery</title>
+<meta name="description" content="How a sunflower packs its seeds. Each new seed is placed one golden angle around from the last. Because the golden ratio is the &#x27;most irrational&#x27; number, the seeds never line up into gaps, and the spiral families you see come in Fibonacci numbers.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="buddhabrot.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>8 / 24</span>
+</nav>
+
+<a class="arrow prev" href="maurer.html" title="Maurer Rose" aria-label="Previous: Maurer Rose">&lsaquo;</a>
+<a class="arrow next" href="buddhabrot.html" title="Buddhabrot" aria-label="Next: Buddhabrot">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/phyllotaxis.png" title="Open the full resolution image">
+    <img src="../art/phyllotaxis.png" width="1600" height="1600" alt="Phyllotaxis">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 8</span>
+    <h1>Phyllotaxis</h1>
+    <div class="kind">Botanical pattern, 2026. Python and numpy.</div>
+    <pre>theta_k = k * 137.508 degrees
+r_k = sqrt(k)</pre>
+    <p class="lede">How a sunflower packs its seeds. Each new seed is placed one golden angle around from the last. Because the golden ratio is the &#x27;most irrational&#x27; number, the seeds never line up into gaps, and the spiral families you see come in Fibonacci numbers.</p>
+    <p>The golden angle, about 137.5 degrees, splits a full turn in the golden ratio. In 1979 Helmut Vogel showed that placing seeds one golden angle apart, with the radius growing like the square root of the seed number, reproduces the head of a sunflower.</p>
+    <p>Count the spirals curving one way and then the other and you get neighboring Fibonacci numbers, such as 34 and 55. Change the angle by a fraction of a degree and the seeds collapse into straight spokes with gaps between them. The color runs from the first seed at the center to the last one at the rim.</p>
+    <p class="params">1,500 seeds, golden angle</p>
+    <p class="links"><a href="../art/phyllotaxis.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/phyllotaxis.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="maurer.html"><small>&larr; Previous</small>Maurer Rose</a>
+    <a class="next" href="buddhabrot.html"><small>Next &rarr;</small>Buddhabrot</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "maurer.html";
+    else if (e.key === "ArrowRight") location.href = "buddhabrot.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

@@ -14,6 +14,23 @@ CAPTION = (
     "colors meet; the double zero at 2 + i spins through the rainbow twice. "
     "Poles look the same with the colors running backwards."
 )
+KIND = "Complex function"
+ABOUT = [
+    (
+        "A complex function takes a point in the plane and returns another point "
+        "in the plane, so an ordinary graph would need four dimensions. Domain "
+        "coloring, a name coined by Frank Farris, paints the output onto the "
+        "input instead: the hue shows which direction the output points and the "
+        "brightness shows how big it is."
+    ),
+    (
+        "This function has simple zeros at 1 and -1, a double zero at 2 + i, and "
+        "two poles where z^2 = -2 - 2i. Around each zero the colors circle once "
+        "for each order of the zero; around the poles they run backwards. The "
+        "rings step every time the size of f(z) doubles, and faint spokes mark "
+        "every 30 degrees of phase."
+    ),
+]
 
 
 def hsv_to_rgb(h, s, v):

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain Coloring | Math Art Gallery</title>
+<meta name="description" content="A way to draw a complex function, which takes a 2D input to a 2D output and can&#x27;t be graphed the usual way. Color shows the direction of f(z) and the shaded rings show its size. Zeros are where all the colors meet; the double zero at 2 + i spins through the rainbow twice. Poles look the same with the colors running backwards.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="hilbert.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>23 / 24</span>
+</nav>
+
+<a class="arrow prev" href="dragon.html" title="Dragon Curves" aria-label="Previous: Dragon Curves">&lsaquo;</a>
+<a class="arrow next" href="hilbert.html" title="Hilbert Curve" aria-label="Next: Hilbert Curve">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/domain.png" title="Open the full resolution image">
+    <img src="../art/domain.png" width="1600" height="1600" alt="Domain Coloring">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 23</span>
+    <h1>Domain Coloring</h1>
+    <div class="kind">Complex function, 2026. Python and numpy.</div>
+    <pre>f(z) = (z^2 - 1)(z - 2 - i)^2 / (z^2 + 2 + 2i)
+hue = arg f(z),  brightness bands = log |f(z)|</pre>
+    <p class="lede">A way to draw a complex function, which takes a 2D input to a 2D output and can&#x27;t be graphed the usual way. Color shows the direction of f(z) and the shaded rings show its size. Zeros are where all the colors meet; the double zero at 2 + i spins through the rainbow twice. Poles look the same with the colors running backwards.</p>
+    <p>A complex function takes a point in the plane and returns another point in the plane, so an ordinary graph would need four dimensions. Domain coloring, a name coined by Frank Farris, paints the output onto the input instead: the hue shows which direction the output points and the brightness shows how big it is.</p>
+    <p>This function has simple zeros at 1 and -1, a double zero at 2 + i, and two poles where z^2 = -2 - 2i. Around each zero the colors circle once for each order of the zero; around the poles they run backwards. The rings step every time the size of f(z) doubles, and faint spokes mark every 30 degrees of phase.</p>
+    <p class="params">-3 to 3 on both axes</p>
+    <p class="links"><a href="../art/domain.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/domain.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="dragon.html"><small>&larr; Previous</small>Dragon Curves</a>
+    <a class="next" href="hilbert.html"><small>Next &rarr;</small>Hilbert Curve</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "dragon.html";
+    else if (e.key === "ArrowRight") location.href = "hilbert.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

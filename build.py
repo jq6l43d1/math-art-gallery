@@ -1,13 +1,14 @@
-"""Render every piece and build the gallery page.
+"""Render every piece and build the gallery site.
 
     python build.py                  # render everything at 1600x1600
     python build.py clifford julia   # render just these
     python build.py --size 4000      # print-quality
-    python build.py --page-only      # rebuild index.html from existing images
+    python build.py --page-only      # rebuild the HTML from existing images
 """
 
 import argparse
 import html
+import shutil
 import time
 from pathlib import Path
 
@@ -18,6 +19,7 @@ from gallery.pieces import PIECES
 ROOT = Path(__file__).parent
 DOCS = ROOT / "docs"
 ART = DOCS / "art"
+SITE = ROOT / "gallery" / "site"
 
 
 def render(names, size, seed):
@@ -31,26 +33,61 @@ def render(names, size, seed):
         print(f"{name:14s} {time.perf_counter() - start:6.1f}s")
 
 
-def build_page():
-    cards = []
-    for i, (name, piece) in enumerate(PIECES.items(), 1):
-        formula = "\n".join(html.escape(line) for line in piece.FORMULA)
-        cards.append(f"""
-    <article class="piece" id="{name}">
-      <a class="frame" href="art/{name}.png"><img src="art/{name}.jpg" alt="{html.escape(piece.TITLE)}" loading="lazy"></a>
-      <div class="plaque">
-        <span class="no">No. {i}</span>
-        <h2>{html.escape(piece.TITLE)}</h2>
-        <pre>{formula}</pre>
-        <p class="params">{html.escape(piece.PARAMS)}</p>
-        <p>{html.escape(piece.CAPTION)}</p>
-        <a class="src" href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/{name}.py">source</a>
-      </div>
-    </article>""")
+def fill(template, **values):
+    for key, value in values.items():
+        template = template.replace("{{" + key + "}}", str(value))
+    return template
 
-    template = (ROOT / "gallery" / "template.html").read_text()
-    (DOCS / "index.html").write_text(template.replace("{{PIECES}}", "".join(cards)))
-    print(f"wrote {DOCS / 'index.html'}")
+
+def build_site():
+    """Write the entrance hall (index.html) and one room per piece."""
+    names = list(PIECES)
+    piece_tpl = (SITE / "piece.html").read_text()
+    (DOCS / "pieces").mkdir(parents=True, exist_ok=True)
+    shutil.copy(SITE / "style.css", DOCS / "style.css")
+
+    exhibits = []
+    for i, name in enumerate(names):
+        piece = PIECES[name]
+        title = html.escape(piece.TITLE)
+        kind = html.escape(piece.KIND)
+        exhibits.append(f"""
+  <a class="exhibit" href="pieces/{name}.html">
+    <span class="frame"><img src="art/{name}.jpg" alt="{title}" loading="lazy"></span>
+    <div class="label">
+      <span class="no">No. {i + 1}</span>
+      <h2>{title}</h2>
+      <span class="kind">{kind}</span>
+    </div>
+  </a>""")
+
+        prev_name, next_name = names[i - 1], names[(i + 1) % len(names)]
+        with Image.open(ART / f"{name}.png") as img:
+            width, height = img.size
+        page = fill(
+            piece_tpl,
+            NAME=name,
+            NO=i + 1,
+            TOTAL=len(names),
+            TITLE=title,
+            KIND=kind,
+            DESCRIPTION=html.escape(piece.CAPTION, quote=True),
+            FORMULA="\n".join(html.escape(line) for line in piece.FORMULA),
+            CAPTION=html.escape(piece.CAPTION),
+            ABOUT="\n".join(f"    <p>{html.escape(p)}</p>" for p in piece.ABOUT),
+            PARAMS=html.escape(piece.PARAMS),
+            WIDTH=width,
+            HEIGHT=height,
+            PREV=prev_name,
+            NEXT=next_name,
+            PREV_TITLE=html.escape(PIECES[prev_name].TITLE),
+            NEXT_TITLE=html.escape(PIECES[next_name].TITLE),
+        )
+        (DOCS / "pieces" / f"{name}.html").write_text(page)
+
+    index = fill((SITE / "index.html").read_text(), EXHIBITS="".join(exhibits), FIRST=names[0])
+    (DOCS / "index.html").write_text(index)
+    print(f"wrote {DOCS / 'index.html'} and {len(names)} rooms in {DOCS / 'pieces'}")
 
 
 def main():
@@ -67,7 +104,7 @@ def main():
 
     if not args.page_only:
         render(args.names or list(PIECES), args.size, args.seed)
-    build_page()
+    build_site()
 
 
 if __name__ == "__main__":

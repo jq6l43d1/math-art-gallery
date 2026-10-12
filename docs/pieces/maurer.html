@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maurer Rose | Math Art Gallery</title>
+<meta name="description" content="Start with the rose curve r = sin(6 theta), then ignore it and walk around it in jumps of 71 degrees, joining each landing spot with a straight line. The rose (in red) is hidden inside its own web.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="phyllotaxis.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>7 / 24</span>
+</nav>
+
+<a class="arrow prev" href="harmonograph.html" title="Harmonograph" aria-label="Previous: Harmonograph">&lsaquo;</a>
+<a class="arrow next" href="phyllotaxis.html" title="Phyllotaxis" aria-label="Next: Phyllotaxis">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/maurer.png" title="Open the full resolution image">
+    <img src="../art/maurer.png" width="1600" height="1600" alt="Maurer Rose">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 7</span>
+    <h1>Maurer Rose</h1>
+    <div class="kind">Polar curve, 2026. Python and numpy.</div>
+    <pre>r = sin(n theta)
+connect the points at theta = k d degrees, k = 0..360</pre>
+    <p class="lede">Start with the rose curve r = sin(6 theta), then ignore it and walk around it in jumps of 71 degrees, joining each landing spot with a straight line. The rose (in red) is hidden inside its own web.</p>
+    <p>Peter Maurer introduced these roses in a 1987 article in the American Mathematical Monthly. They start from the familiar rose curve, r = sin(n theta), but instead of tracing it smoothly they jump around it in fixed steps of d degrees and join each landing point with a straight line.</p>
+    <p>The step size decides everything. Some values of d just retrace the rose with straight segments. Others, like 71 here, make the 361 points form a dense web that looks random but closes up perfectly. The rose itself is drawn on top in red so you can see what the web is built on.</p>
+    <p class="params">n = 6, d = 71</p>
+    <p class="links"><a href="../art/maurer.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/maurer.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="harmonograph.html"><small>&larr; Previous</small>Harmonograph</a>
+    <a class="next" href="phyllotaxis.html"><small>Next &rarr;</small>Phyllotaxis</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "harmonograph.html";
+    else if (e.key === "ArrowRight") location.href = "phyllotaxis.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

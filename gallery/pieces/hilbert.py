@@ -15,6 +15,20 @@ CAPTION = (
     "finish, and the blocks show the useful part: cells that are close on "
     "the line are close on the page."
 )
+KIND = "Space-filling curve"
+ABOUT = [
+    (
+        "David Hilbert described this curve in 1891, a year after Giuseppe Peano "
+        "found the first space-filling curve. Taken to the limit, a single "
+        "continuous line passes through every point of a square."
+    ),
+    (
+        "Its practical value is locality: points that are close along the line "
+        "are close on the page. That makes it useful for ordering data on disk, "
+        "in databases and in image processing. Order 6 means 4,096 cells joined "
+        "by 4,095 steps, colored from violet at the start to red at the end."
+    ),
+]
 
 STOPS = ["#3a0ca3", "#4361ee", "#4cc9f0", "#80ed99", "#f9c74f", "#f8961e", "#f94144"]
 

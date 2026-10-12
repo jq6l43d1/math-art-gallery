@@ -16,6 +16,21 @@ CAPTION = (
     "pattern; the dark blue regions are chaos. The pattern was named Zircon Zity "
     "by Mario Markus, who first drew these around 1990."
 )
+KIND = "Stability map"
+ABOUT = [
+    (
+        "A Lyapunov exponent measures whether nearby starting points drift "
+        "together or apart. Mario Markus and Benno Hess turned it into pictures "
+        "by forcing the logistic map, the textbook model of population growth, to "
+        "alternate between two growth rates, a and b, in a fixed pattern."
+    ),
+    (
+        "Each pixel is one pair of rates. The map runs 200 warm-up steps and then "
+        "averages the exponent over 400 more. Gold means stable, and the brighter "
+        "it is, the more strongly nearby values are pulled together; the glowing "
+        "lines are where the system is super-stable. Dark blue means chaos."
+    ),
+]
 
 
 def render(size, seed=0):

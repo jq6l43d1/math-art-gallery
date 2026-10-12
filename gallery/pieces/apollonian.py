@@ -16,6 +16,22 @@ CAPTION = (
     "version also gives its position. The smaller the circle, the brighter "
     "and warmer its color."
 )
+KIND = "Circle packing"
+ABOUT = [
+    (
+        "Around 200 BC Apollonius of Perga asked how to draw a circle tangent to "
+        "three given circles. Repeating that construction in every gap gives the "
+        "gasket. In 1643 Rene Descartes found a simple relation between the "
+        "curvatures of four mutually tangent circles, and in 2002 it was extended "
+        "to complex numbers so that it gives the centers too."
+    ),
+    (
+        "Starting from three equal circles inside a unit circle, every circle "
+        "here comes from applying that relation over and over until the circles "
+        "are smaller than a pixel, about 4,500 in all. The dust left between them "
+        "is a fractal with a dimension of about 1.31."
+    ),
+]
 
 COLORS = ["#0d0d14", "#203a5c", "#3f6e9a", "#7fb0c9", "#f2c879", "#fbe6c2"]
 

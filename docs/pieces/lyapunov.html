@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lyapunov Fractal | Math Art Gallery</title>
+<meta name="description" content="The logistic map is the simplest model of a population that grows until it runs out of food. Here the growth rate flips between two values in a fixed rhythm. Gold regions settle down to a steady pattern; the dark blue regions are chaos. The pattern was named Zircon Zity by Mario Markus, who first drew these around 1990.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="dragon.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>21 / 24</span>
+</nav>
+
+<a class="arrow prev" href="apollonian.html" title="Apollonian Gasket" aria-label="Previous: Apollonian Gasket">&lsaquo;</a>
+<a class="arrow next" href="dragon.html" title="Dragon Curves" aria-label="Next: Dragon Curves">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/lyapunov.png" title="Open the full resolution image">
+    <img src="../art/lyapunov.png" width="1600" height="1600" alt="Lyapunov Fractal">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 21</span>
+    <h1>Lyapunov Fractal</h1>
+    <div class="kind">Stability map, 2026. Python and numpy.</div>
+    <pre>x&#x27; = r x (1 - x),  r alternates between a and b as &#x27;BBBBBBAAAAAA&#x27;
+lambda = average of log |r (1 - 2x)|</pre>
+    <p class="lede">The logistic map is the simplest model of a population that grows until it runs out of food. Here the growth rate flips between two values in a fixed rhythm. Gold regions settle down to a steady pattern; the dark blue regions are chaos. The pattern was named Zircon Zity by Mario Markus, who first drew these around 1990.</p>
+    <p>A Lyapunov exponent measures whether nearby starting points drift together or apart. Mario Markus and Benno Hess turned it into pictures by forcing the logistic map, the textbook model of population growth, to alternate between two growth rates, a and b, in a fixed pattern.</p>
+    <p>Each pixel is one pair of rates. The map runs 200 warm-up steps and then averages the exponent over 400 more. Gold means stable, and the brighter it is, the more strongly nearby values are pulled together; the glowing lines are where the system is super-stable. Dark blue means chaos.</p>
+    <p class="params">a from 2.5 to 3.4 (across), b from 3.4 to 4.0 (up), 600 steps</p>
+    <p class="links"><a href="../art/lyapunov.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/lyapunov.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="apollonian.html"><small>&larr; Previous</small>Apollonian Gasket</a>
+    <a class="next" href="dragon.html"><small>Next &rarr;</small>Dragon Curves</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "apollonian.html";
+    else if (e.key === "ArrowRight") location.href = "dragon.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

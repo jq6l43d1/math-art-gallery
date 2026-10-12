@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Standard Map | Math Art Gallery</title>
+<meta name="description" content="A spinning rotor that gets kicked at regular intervals. Each color is one starting condition followed for 2,500 kicks. Some orbits stay on smooth curves or circle inside islands; others scatter across a chaotic sea, drawn in slate. K is set just below the point where the last smooth barrier breaks.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="apollonian.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>19 / 24</span>
+</nav>
+
+<a class="arrow prev" href="quasicrystal.html" title="Quasicrystal" aria-label="Previous: Quasicrystal">&lsaquo;</a>
+<a class="arrow next" href="apollonian.html" title="Apollonian Gasket" aria-label="Next: Apollonian Gasket">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/standardmap.png" title="Open the full resolution image">
+    <img src="../art/standardmap.png" width="1600" height="1600" alt="Standard Map">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 19</span>
+    <h1>Standard Map</h1>
+    <div class="kind">Hamiltonian chaos, 2026. Python and numpy.</div>
+    <pre>p&#x27; = p + K sin(theta)
+theta&#x27; = theta + p&#x27;      (both mod 2 pi)</pre>
+    <p class="lede">A spinning rotor that gets kicked at regular intervals. Each color is one starting condition followed for 2,500 kicks. Some orbits stay on smooth curves or circle inside islands; others scatter across a chaotic sea, drawn in slate. K is set just below the point where the last smooth barrier breaks.</p>
+    <p>Boris Chirikov studied this map in 1969 as a model of charged particles in magnetic fields. It became the standard example of how order breaks down into chaos in systems that conserve energy, and many physical problems reduce to it, which is where the name comes from.</p>
+    <p>As K grows, the smooth curves that stop orbits from wandering break up one by one. The last one breaks at K of about 0.9716. Each orbit&#x27;s Lyapunov exponent is estimated as it is computed, and the chaotic orbits are drawn in a muted slate so the surviving islands and curves stand out.</p>
+    <p class="params">K = 0.97, 700 orbits of 2,500 kicks each, one color per orbit</p>
+    <p class="links"><a href="../art/standardmap.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/standardmap.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="quasicrystal.html"><small>&larr; Previous</small>Quasicrystal</a>
+    <a class="next" href="apollonian.html"><small>Next &rarr;</small>Apollonian Gasket</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "quasicrystal.html";
+    else if (e.key === "ArrowRight") location.href = "apollonian.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

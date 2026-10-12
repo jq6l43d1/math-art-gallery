@@ -9,6 +9,11 @@ Clifford attractor plotted from 10 million points, which took an hour to
 render in LaTeX, and wanted to see how far plain Python could get. With numpy
 the same 10 million points take about two seconds, so I kept adding pieces.
 
+The site is laid out like a real gallery. The entrance hall shows every work
+on one wall, and each piece hangs in its own room under a spotlight, with a
+museum-style placard below it covering the history, the math and how it was
+rendered. You can walk from room to room with the arrow keys.
+
 | No. | Piece | The math |
 | --- | --- | --- |
 | 1 | [Clifford attractor](gallery/pieces/clifford.py) | `x' = sin(a y) + c cos(a x)`, `y' = sin(b x) + d cos(b y)` |
@@ -48,8 +53,11 @@ python build.py --size 4000      # print size
 python build.py --page-only      # rebuild docs/index.html without rendering
 ```
 
-Images land in `docs/art/` (a full PNG plus a JPG for the page) and the
-gallery page is `docs/index.html`, which GitHub Pages serves directly.
+Images land in `docs/art/` (a full PNG for the rooms plus a smaller JPG for
+the entrance hall). The site itself is plain static HTML, built from the
+templates in `gallery/site/`: `docs/index.html` is the entrance and
+`docs/pieces/*.html` are the rooms. GitHub Pages serves the `docs` folder
+directly.
 Rendering the whole set takes about two and a half minutes on my machine,
 and the Buddhabrot is the slowest piece by far.
 
@@ -101,9 +109,11 @@ into strokes.
 
 ## Adding a piece
 
-Drop a module into `gallery/pieces/` with a `TITLE`, `FORMULA` (list of
-lines), `PARAMS`, `CAPTION` and a `render(size, seed)` function that returns a
-Pillow image, then add it to `PIECES` in `gallery/pieces/__init__.py`. The
+Drop a module into `gallery/pieces/` with a `TITLE`, `KIND` (the line under
+the title on the placard), `FORMULA` (list of lines), `PARAMS`, `CAPTION` (the
+opening paragraph), `ABOUT` (the rest of the placard, one string per
+paragraph) and a `render(size, seed)` function that returns a Pillow image,
+then add it to `PIECES` in `gallery/pieces/__init__.py`. The
 helpers in [gallery/render.py](gallery/render.py) handle the histogram, tone
 mapping and coloring.
 

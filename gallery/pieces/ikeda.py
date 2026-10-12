@@ -16,6 +16,22 @@ CAPTION = (
     "far from the center the light is, which is enough to fold the orbit "
     "into this curling wave."
 )
+KIND = "Strange attractor"
+ABOUT = [
+    (
+        "Kensuke Ikeda proposed this map in 1979 to describe light travelling "
+        "around a ring cavity that contains a nonlinear material, the kind of "
+        "setup found inside some lasers. Each step is one trip around the ring: "
+        "the light loses some energy (the factor u) and its phase shifts by an "
+        "amount that depends on its intensity."
+    ),
+    (
+        "At u = 0.9 the attractor shares the plane with a stable fixed point, and "
+        "some starting points spiral into that instead. For this render, any "
+        "point that has stopped moving after the warm-up is thrown away, leaving "
+        "only the curling attractor."
+    ),
+]
 
 
 def render(size, seed=0):

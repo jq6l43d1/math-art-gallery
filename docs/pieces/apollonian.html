@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apollonian Gasket | Math Art Gallery</title>
+<meta name="description" content="Fill a circle with three touching circles, then fill every curved triangular gap with the largest circle that fits, forever. Descartes worked out the size of each new circle in 1643; a later complex-number version also gives its position. The smaller the circle, the brighter and warmer its color.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="lyapunov.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>20 / 24</span>
+</nav>
+
+<a class="arrow prev" href="standardmap.html" title="Standard Map" aria-label="Previous: Standard Map">&lsaquo;</a>
+<a class="arrow next" href="lyapunov.html" title="Lyapunov Fractal" aria-label="Next: Lyapunov Fractal">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/apollonian.png" title="Open the full resolution image">
+    <img src="../art/apollonian.png" width="1600" height="1600" alt="Apollonian Gasket">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 20</span>
+    <h1>Apollonian Gasket</h1>
+    <div class="kind">Circle packing, 2026. Python and numpy.</div>
+    <pre>k4 = 2 (k1 + k2 + k3) - k4_old
+k4 z4 = 2 (k1 z1 + k2 z2 + k3 z3) - k4_old z4_old</pre>
+    <p class="lede">Fill a circle with three touching circles, then fill every curved triangular gap with the largest circle that fits, forever. Descartes worked out the size of each new circle in 1643; a later complex-number version also gives its position. The smaller the circle, the brighter and warmer its color.</p>
+    <p>Around 200 BC Apollonius of Perga asked how to draw a circle tangent to three given circles. Repeating that construction in every gap gives the gasket. In 1643 Rene Descartes found a simple relation between the curvatures of four mutually tangent circles, and in 2002 it was extended to complex numbers so that it gives the centers too.</p>
+    <p>Starting from three equal circles inside a unit circle, every circle here comes from applying that relation over and over until the circles are smaller than a pixel, about 4,500 in all. The dust left between them is a fractal with a dimension of about 1.31.</p>
+    <p class="params">curvatures from Descartes&#x27; circle theorem, circles down to 1 pixel</p>
+    <p class="links"><a href="../art/apollonian.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/apollonian.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="standardmap.html"><small>&larr; Previous</small>Standard Map</a>
+    <a class="next" href="lyapunov.html"><small>Next &rarr;</small>Lyapunov Fractal</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "standardmap.html";
+    else if (e.key === "ArrowRight") location.href = "lyapunov.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

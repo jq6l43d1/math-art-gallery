@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hilbert Curve | Math Art Gallery</title>
+<meta name="description" content="A single unbroken line that visits every square of a grid exactly once, built by joining four smaller copies of itself. Keep going and it fills the whole square. Color follows the line from start to finish, and the blocks show the useful part: cells that are close on the line are close on the page.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="clifford.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>24 / 24</span>
+</nav>
+
+<a class="arrow prev" href="domain.html" title="Domain Coloring" aria-label="Previous: Domain Coloring">&lsaquo;</a>
+<a class="arrow next" href="clifford.html" title="Clifford Attractor" aria-label="Next: Clifford Attractor">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/hilbert.png" title="Open the full resolution image">
+    <img src="../art/hilbert.png" width="1600" height="1600" alt="Hilbert Curve">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 24</span>
+    <h1>Hilbert Curve</h1>
+    <div class="kind">Space-filling curve, 2026. Python and numpy.</div>
+    <pre>H(n) = four copies of H(n - 1), two rotated, joined end to end</pre>
+    <p class="lede">A single unbroken line that visits every square of a grid exactly once, built by joining four smaller copies of itself. Keep going and it fills the whole square. Color follows the line from start to finish, and the blocks show the useful part: cells that are close on the line are close on the page.</p>
+    <p>David Hilbert described this curve in 1891, a year after Giuseppe Peano found the first space-filling curve. Taken to the limit, a single continuous line passes through every point of a square.</p>
+    <p>Its practical value is locality: points that are close along the line are close on the page. That makes it useful for ordering data on disk, in databases and in image processing. Order 6 means 4,096 cells joined by 4,095 steps, colored from violet at the start to red at the end.</p>
+    <p class="params">order 6: one line through all 4,096 cells of a 64 x 64 grid</p>
+    <p class="links"><a href="../art/hilbert.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/hilbert.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="domain.html"><small>&larr; Previous</small>Domain Coloring</a>
+    <a class="next" href="clifford.html"><small>Next &rarr;</small>Clifford Attractor</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "domain.html";
+    else if (e.key === "ArrowRight") location.href = "clifford.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

@@ -14,6 +14,21 @@ CAPTION = (
     "around it in jumps of 71 degrees, joining each landing spot with a "
     "straight line. The rose (in red) is hidden inside its own web."
 )
+KIND = "Polar curve"
+ABOUT = [
+    (
+        "Peter Maurer introduced these roses in a 1987 article in the American "
+        "Mathematical Monthly. They start from the familiar rose curve, r = sin(n "
+        "theta), but instead of tracing it smoothly they jump around it in fixed "
+        "steps of d degrees and join each landing point with a straight line."
+    ),
+    (
+        "The step size decides everything. Some values of d just retrace the rose "
+        "with straight segments. Others, like 71 here, make the 361 points form a "
+        "dense web that looks random but closes up perfectly. The rose itself is "
+        "drawn on top in red so you can see what the web is built on."
+    ),
+]
 
 
 def segments(xs, ys, per_unit):

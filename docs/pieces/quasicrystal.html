@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quasicrystal | Math Art Gallery</title>
+<meta name="description" content="Seven flat ripples crossing at equal angles. Two, three, four or six waves would make a repeating tiling, but seven can&#x27;t: the pattern has perfect sevenfold symmetry around the center and yet never repeats anywhere, like the quasicrystals that won the 2011 Nobel Prize in Chemistry.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="standardmap.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>18 / 24</span>
+</nav>
+
+<a class="arrow prev" href="mandelbrot.html" title="Seahorse Valley" aria-label="Previous: Seahorse Valley">&lsaquo;</a>
+<a class="arrow next" href="standardmap.html" title="Standard Map" aria-label="Next: Standard Map">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/quasicrystal.png" title="Open the full resolution image">
+    <img src="../art/quasicrystal.png" width="1600" height="1600" alt="Quasicrystal">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 18</span>
+    <h1>Quasicrystal</h1>
+    <div class="kind">Wave interference, 2026. Python and numpy.</div>
+    <pre>f(x, y) = sum over k = 0..6 of cos(x cos(k pi/7) + y sin(k pi/7))</pre>
+    <p class="lede">Seven flat ripples crossing at equal angles. Two, three, four or six waves would make a repeating tiling, but seven can&#x27;t: the pattern has perfect sevenfold symmetry around the center and yet never repeats anywhere, like the quasicrystals that won the 2011 Nobel Prize in Chemistry.</p>
+    <p>In 1982 Dan Shechtman looked at an aluminium-manganese alloy under an electron microscope and saw a symmetry that crystallographers believed was impossible. Materials like it are ordered but never periodic, and for years many scientists refused to accept them.</p>
+    <p>This image is a sum of seven cosine waves, each tilted one seventh of a half turn from the last. Anywhere you look you can find patches that nearly repeat, but no shift maps the whole pattern exactly onto itself. Passing the sum through a sine turns both peaks and troughs into bright bands.</p>
+    <p class="params">7 plane waves, 7-fold symmetry</p>
+    <p class="links"><a href="../art/quasicrystal.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/quasicrystal.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="mandelbrot.html"><small>&larr; Previous</small>Seahorse Valley</a>
+    <a class="next" href="standardmap.html"><small>Next &rarr;</small>Standard Map</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "mandelbrot.html";
+    else if (e.key === "ArrowRight") location.href = "standardmap.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

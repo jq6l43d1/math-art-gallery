@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ikeda Map | Math Art Gallery</title>
+<meta name="description" content="A model of light circling a ring-shaped laser cavity, losing a little energy and picking up a twist on every lap. The twist depends on how far from the center the light is, which is enough to fold the orbit into this curling wave.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="grayscott.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>12 / 24</span>
+</nav>
+
+<a class="arrow prev" href="newton.html" title="Newton Fractal" aria-label="Previous: Newton Fractal">&lsaquo;</a>
+<a class="arrow next" href="grayscott.html" title="Gray-Scott Reaction-Diffusion" aria-label="Next: Gray-Scott Reaction-Diffusion">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/ikeda.png" title="Open the full resolution image">
+    <img src="../art/ikeda.png" width="1600" height="1600" alt="Ikeda Map">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 12</span>
+    <h1>Ikeda Map</h1>
+    <div class="kind">Strange attractor, 2026. Python and numpy.</div>
+    <pre>t = 0.4 - 6 / (1 + x^2 + y^2)
+x&#x27; = 1 + u (x cos t - y sin t)
+y&#x27; = u (x sin t + y cos t)</pre>
+    <p class="lede">A model of light circling a ring-shaped laser cavity, losing a little energy and picking up a twist on every lap. The twist depends on how far from the center the light is, which is enough to fold the orbit into this curling wave.</p>
+    <p>Kensuke Ikeda proposed this map in 1979 to describe light travelling around a ring cavity that contains a nonlinear material, the kind of setup found inside some lasers. Each step is one trip around the ring: the light loses some energy (the factor u) and its phase shifts by an amount that depends on its intensity.</p>
+    <p>At u = 0.9 the attractor shares the plane with a stable fixed point, and some starting points spiral into that instead. For this render, any point that has stopped moving after the warm-up is thrown away, leaving only the curling attractor.</p>
+    <p class="params">u = 0.9, 10 million points</p>
+    <p class="links"><a href="../art/ikeda.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/ikeda.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="newton.html"><small>&larr; Previous</small>Newton Fractal</a>
+    <a class="next" href="grayscott.html"><small>Next &rarr;</small>Gray-Scott Reaction-Diffusion</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "newton.html";
+    else if (e.key === "ArrowRight") location.href = "grayscott.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

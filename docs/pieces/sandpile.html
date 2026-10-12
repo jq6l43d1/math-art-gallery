@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abelian Sandpile | Math Art Gallery</title>
+<meta name="description" content="Pour sand onto a single square of a grid. Whenever a square holds four grains it topples, passing one to each neighbor, which may topple in turn. When everything finally settles, this fractal of nested triangles and ovals is what&#x27;s left.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="mandelbrot.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>16 / 24</span>
+</nav>
+
+<a class="arrow prev" href="chaosgame.html" title="Chaos Game" aria-label="Previous: Chaos Game">&lsaquo;</a>
+<a class="arrow next" href="mandelbrot.html" title="Seahorse Valley" aria-label="Next: Seahorse Valley">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/sandpile.png" title="Open the full resolution image">
+    <img src="../art/sandpile.png" width="1600" height="1600" alt="Abelian Sandpile">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 16</span>
+    <h1>Abelian Sandpile</h1>
+    <div class="kind">Cellular automaton, 2026. Python and numpy.</div>
+    <pre>drop N grains on one cell
+any cell with 4 or more grains gives 1 to each neighbor</pre>
+    <p class="lede">Pour sand onto a single square of a grid. Whenever a square holds four grains it topples, passing one to each neighbor, which may topple in turn. When everything finally settles, this fractal of nested triangles and ovals is what&#x27;s left.</p>
+    <p>Physicists Per Bak, Chao Tang and Kurt Wiesenfeld introduced the sandpile in 1987 as a model of self-organized criticality: a system that drives itself to the edge of an avalanche. Deepak Dhar later proved the abelian property, that topplings can happen in any order without changing the outcome.</p>
+    <p>Here 65,536 grains start on one cell. Each color is the number of grains left on a cell when everything settles: 0, 1, 2 or 3. For speed, every unstable cell topples as many times as it can at once, which by the abelian property gives exactly the same final pile.</p>
+    <p class="params">N = 2^16 grains, colored by 0, 1, 2 or 3 grains left</p>
+    <p class="links"><a href="../art/sandpile.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/sandpile.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="chaosgame.html"><small>&larr; Previous</small>Chaos Game</a>
+    <a class="next" href="mandelbrot.html"><small>Next &rarr;</small>Seahorse Valley</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "chaosgame.html";
+    else if (e.key === "ArrowRight") location.href = "mandelbrot.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barnsley Fern | Math Art Gallery</title>
+<meta name="description" content="A fern drawn by rolling dice. Each map is a simple stretch, rotate and shift; one makes the stem, one makes each leaf a smaller copy of the whole, and two make the first left and right leaflets.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="harmonograph.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>5 / 24</span>
+</nav>
+
+<a class="arrow prev" href="julia.html" title="Julia Set" aria-label="Previous: Julia Set">&lsaquo;</a>
+<a class="arrow next" href="harmonograph.html" title="Harmonograph" aria-label="Next: Harmonograph">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/fern.png" title="Open the full resolution image">
+    <img src="../art/fern.png" width="1600" height="1600" alt="Barnsley Fern">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 5</span>
+    <h1>Barnsley Fern</h1>
+    <div class="kind">Iterated function system, 2026. Python and numpy.</div>
+    <pre>pick one of four affine maps at random
+(x, y) -&gt; A (x, y) + b</pre>
+    <p class="lede">A fern drawn by rolling dice. Each map is a simple stretch, rotate and shift; one makes the stem, one makes each leaf a smaller copy of the whole, and two make the first left and right leaflets.</p>
+    <p>Michael Barnsley used this fern in his 1988 book Fractals Everywhere to show how little information a natural-looking shape needs. The whole plant is encoded in 28 numbers: six coefficients and one probability for each of four maps.</p>
+    <p>The probabilities only affect how evenly the fern fills in; the shape itself is fixed by the maps. The render runs 200,000 points at once, each choosing its own map at every step, and the brightness of each pixel comes from how often it was landed on.</p>
+    <p class="params">4 maps chosen with probability 1%, 85%, 7%, 7%, 8 million points</p>
+    <p class="links"><a href="../art/fern.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/fern.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="julia.html"><small>&larr; Previous</small>Julia Set</a>
+    <a class="next" href="harmonograph.html"><small>Next &rarr;</small>Harmonograph</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "julia.html";
+    else if (e.key === "ArrowRight") location.href = "harmonograph.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

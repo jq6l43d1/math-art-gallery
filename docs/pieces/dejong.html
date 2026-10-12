@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peter de Jong Attractor | Math Art Gallery</title>
+<meta name="description" content="A close cousin of the Clifford map with the cosines subtracted instead of added. The same idea, a different personality: it folds into smoke instead of ribbons. Rendered like a long exposure of light on black.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="lorenz.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>2 / 24</span>
+</nav>
+
+<a class="arrow prev" href="clifford.html" title="Clifford Attractor" aria-label="Previous: Clifford Attractor">&lsaquo;</a>
+<a class="arrow next" href="lorenz.html" title="Lorenz Attractor" aria-label="Next: Lorenz Attractor">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/dejong.png" title="Open the full resolution image">
+    <img src="../art/dejong.png" width="1600" height="1600" alt="Peter de Jong Attractor">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 2</span>
+    <h1>Peter de Jong Attractor</h1>
+    <div class="kind">Strange attractor, 2026. Python and numpy.</div>
+    <pre>x&#x27; = sin(a y) - cos(b x)
+y&#x27; = sin(c x) - cos(d y)</pre>
+    <p class="lede">A close cousin of the Clifford map with the cosines subtracted instead of added. The same idea, a different personality: it folds into smoke instead of ribbons. Rendered like a long exposure of light on black.</p>
+    <p>Each new point depends only on the one before it, so the whole image is one rule applied over and over. Most choices of a, b, c and d give a thin loop or a shapeless cloud. A few, like these, give folded sheets with real depth, and finding them is mostly patient trial and error.</p>
+    <p>This one is rendered as light instead of ink. The number of visits to each pixel is mapped through a palette that runs from black through deep blue to white, so the most visited folds glow like a long-exposure photograph.</p>
+    <p class="params">a = 1.4, b = -2.3, c = 2.4, d = -2.1, 12 million points</p>
+    <p class="links"><a href="../art/dejong.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/dejong.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="clifford.html"><small>&larr; Previous</small>Clifford Attractor</a>
+    <a class="next" href="lorenz.html"><small>Next &rarr;</small>Lorenz Attractor</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "clifford.html";
+    else if (e.key === "ArrowRight") location.href = "lorenz.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clifford Attractor | Math Art Gallery</title>
+<meta name="description" content="Two lines of trigonometry, iterated ten million times. Each point is computed from the one before it, and the orbit never settles into a repeating loop, yet it always traces the same tangle of ribbons. Darker ink means more visits.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="dejong.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>1 / 24</span>
+</nav>
+
+<a class="arrow prev" href="hilbert.html" title="Hilbert Curve" aria-label="Previous: Hilbert Curve">&lsaquo;</a>
+<a class="arrow next" href="dejong.html" title="Peter de Jong Attractor" aria-label="Next: Peter de Jong Attractor">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/clifford.png" title="Open the full resolution image">
+    <img src="../art/clifford.png" width="1600" height="1600" alt="Clifford Attractor">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 1</span>
+    <h1>Clifford Attractor</h1>
+    <div class="kind">Strange attractor, 2026. Python and numpy.</div>
+    <pre>x&#x27; = sin(a y) + c cos(a x)
+y&#x27; = sin(b x) + d cos(b y)</pre>
+    <p class="lede">Two lines of trigonometry, iterated ten million times. Each point is computed from the one before it, and the orbit never settles into a repeating loop, yet it always traces the same tangle of ribbons. Darker ink means more visits.</p>
+    <p>The equations are named after Clifford Pickover, who popularized them in his books on computer art. Each new point depends only on the one before it, through two sines and two cosines. Change any of the four parameters slightly and the picture changes completely, so hunting for good parameter sets is half the fun.</p>
+    <p>Nothing here is drawn as a line. Ten million dots are counted into the pixels of the canvas, and the counts go through a logarithm so the faint outer veils and the dense knots both stay visible. The paper tone and single ink color are a nod to the plotted version that got me started on this gallery.</p>
+    <p class="params">a = -1.3, b = -1.3, c = -1.8, d = -1.9, 10 million points</p>
+    <p class="links"><a href="../art/clifford.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/clifford.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="hilbert.html"><small>&larr; Previous</small>Hilbert Curve</a>
+    <a class="next" href="dejong.html"><small>Next &rarr;</small>Peter de Jong Attractor</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "hilbert.html";
+    else if (e.key === "ArrowRight") location.href = "dejong.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

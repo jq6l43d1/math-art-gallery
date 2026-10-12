@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} | Math Art Gallery</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="{{NEXT}}.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>{{NO}} / {{TOTAL}}</span>
+</nav>
+
+<a class="arrow prev" href="{{PREV}}.html" title="{{PREV_TITLE}}" aria-label="Previous: {{PREV_TITLE}}">&lsaquo;</a>
+<a class="arrow next" href="{{NEXT}}.html" title="{{NEXT_TITLE}}" aria-label="Next: {{NEXT_TITLE}}">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/{{NAME}}.png" title="Open the full resolution image">
+    <img src="../art/{{NAME}}.png" width="{{WIDTH}}" height="{{HEIGHT}}" alt="{{TITLE}}">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. {{NO}}</span>
+    <h1>{{TITLE}}</h1>
+    <div class="kind">{{KIND}}, 2026. Python and numpy.</div>
+    <pre>{{FORMULA}}</pre>
+    <p class="lede">{{CAPTION}}</p>
+{{ABOUT}}
+    <p class="params">{{PARAMS}}</p>
+    <p class="links"><a href="../art/{{NAME}}.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/{{NAME}}.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="{{PREV}}.html"><small>&larr; Previous</small>{{PREV_TITLE}}</a>
+    <a class="next" href="{{NEXT}}.html"><small>Next &rarr;</small>{{NEXT_TITLE}}</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "{{PREV}}.html";
+    else if (e.key === "ArrowRight") location.href = "{{NEXT}}.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

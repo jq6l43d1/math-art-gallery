@@ -13,9 +13,24 @@ CAPTION = (
     "Pour sand onto a single square of a grid. Whenever a square holds four "
     "grains it topples, passing one to each neighbor, which may topple in "
     "turn. When everything finally settles, this fractal of nested triangles "
-    "and ovals is what's left. The order of topplings doesn't matter; the "
-    "result is always identical."
+    "and ovals is what's left."
 )
+KIND = "Cellular automaton"
+ABOUT = [
+    (
+        "Physicists Per Bak, Chao Tang and Kurt Wiesenfeld introduced the "
+        "sandpile in 1987 as a model of self-organized criticality: a system that "
+        "drives itself to the edge of an avalanche. Deepak Dhar later proved the "
+        "abelian property, that topplings can happen in any order without "
+        "changing the outcome."
+    ),
+    (
+        "Here 65,536 grains start on one cell. Each color is the number of grains "
+        "left on a cell when everything settles: 0, 1, 2 or 3. For speed, every "
+        "unstable cell topples as many times as it can at once, which by the "
+        "abelian property gives exactly the same final pile."
+    ),
+]
 
 # Most cells end with 3 grains, so 3 gets the calmest color.
 COLORS = ["#0f1424", "#f2e8cf", "#e0a458", "#2e5c8a"]

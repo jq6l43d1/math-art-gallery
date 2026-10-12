@@ -13,6 +13,22 @@ CAPTION = (
     "pendulums that slowly lose energy. Frequencies close to a simple ratio, "
     "but not quite, make the figure drift and spiral inward."
 )
+KIND = "Damped oscillation"
+ABOUT = [
+    (
+        "Harmonographs were a popular parlor device in the Victorian era: a table "
+        "with pendulums underneath, some swinging a pen and others swinging the "
+        "paper. Friction slowly drains the swing, so the figure shrinks toward "
+        "the center as it is drawn."
+    ),
+    (
+        "Here each axis is the sum of two damped sine waves. Frequencies of 3 and "
+        "2 alone would trace a stable figure over and over. Detuning one of them "
+        "to 2.006 makes the figure rotate a little on every pass, which turns a "
+        "single shape into layered petals. Six million points along the curve are "
+        "counted into pixels, so overlapping strokes darken like real ink."
+    ),
+]
 
 
 def render(size, seed=0):

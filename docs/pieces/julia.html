@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julia Set | Math Art Gallery</title>
+<meta name="description" content="Every pixel is a starting value of z. Square it, add c, repeat. Points that stay bounded forever form the set; the color outside shows how quickly each point escaped. The edge is infinitely detailed.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="fern.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>4 / 24</span>
+</nav>
+
+<a class="arrow prev" href="lorenz.html" title="Lorenz Attractor" aria-label="Previous: Lorenz Attractor">&lsaquo;</a>
+<a class="arrow next" href="fern.html" title="Barnsley Fern" aria-label="Next: Barnsley Fern">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/julia.png" title="Open the full resolution image">
+    <img src="../art/julia.png" width="1600" height="1600" alt="Julia Set">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 4</span>
+    <h1>Julia Set</h1>
+    <div class="kind">Escape-time fractal, 2026. Python and numpy.</div>
+    <pre>z&#x27; = z^2 + c
+c = -0.8 + 0.156i</pre>
+    <p class="lede">Every pixel is a starting value of z. Square it, add c, repeat. Points that stay bounded forever form the set; the color outside shows how quickly each point escaped. The edge is infinitely detailed.</p>
+    <p>Gaston Julia and Pierre Fatou studied these sets around 1918, decades before anyone could draw one. Every complex number c gives a different Julia set: some are solid connected shapes, others shatter into dust. This c lies just outside the Mandelbrot set, so strictly speaking this set is dust, but it is so close to the edge that at this size it still looks like connected spirals.</p>
+    <p>The color outside the set comes from counting how many steps each point takes to escape, with a small correction that turns the whole-number count into a smooth value. Without it the image would show hard bands of color instead of gradients.</p>
+    <p class="params">500 iterations, smooth escape-time coloring</p>
+    <p class="links"><a href="../art/julia.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/julia.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="lorenz.html"><small>&larr; Previous</small>Lorenz Attractor</a>
+    <a class="next" href="fern.html"><small>Next &rarr;</small>Barnsley Fern</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "lorenz.html";
+    else if (e.key === "ArrowRight") location.href = "fern.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

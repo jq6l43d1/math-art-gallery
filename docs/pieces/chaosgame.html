@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chaos Game | Math Art Gallery</title>
+<meta name="description" content="Pick a corner of a pentagon at random and move halfway toward it. Repeat. With no rules the points fill the shape with mush, but one small restriction (don&#x27;t pick the same corner twice in a row) is enough to carve out this lace. Each point takes the color of its last corner.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="sandpile.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>15 / 24</span>
+</nav>
+
+<a class="arrow prev" href="hopalong.html" title="Hopalong" aria-label="Previous: Hopalong">&lsaquo;</a>
+<a class="arrow next" href="sandpile.html" title="Abelian Sandpile" aria-label="Next: Abelian Sandpile">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/chaosgame.png" title="Open the full resolution image">
+    <img src="../art/chaosgame.png" width="1600" height="1600" alt="Chaos Game">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 15</span>
+    <h1>Chaos Game</h1>
+    <div class="kind">Chaos game, 2026. Python and numpy.</div>
+    <pre>pick a random corner of a pentagon (never the same one twice in a row)
+p&#x27; = p + (corner - p) / 2</pre>
+    <p class="lede">Pick a corner of a pentagon at random and move halfway toward it. Repeat. With no rules the points fill the shape with mush, but one small restriction (don&#x27;t pick the same corner twice in a row) is enough to carve out this lace. Each point takes the color of its last corner.</p>
+    <p>Michael Barnsley gave the chaos game its name. With the three corners of a triangle and no rules at all, the dots form the Sierpinski triangle. Adding rules about which corners may follow which unlocks a whole family of other fractals from the same simple game.</p>
+    <p>A quarter of a million points play at once for 60 rounds, and the first 20 rounds are thrown away while they settle. Each point is colored by the corner it just jumped toward, and the five colors are multiplied together like layers of transparent ink.</p>
+    <p class="params">5 corners, jump ratio 1/2, 10 million points</p>
+    <p class="links"><a href="../art/chaosgame.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/chaosgame.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="hopalong.html"><small>&larr; Previous</small>Hopalong</a>
+    <a class="next" href="sandpile.html"><small>Next &rarr;</small>Abelian Sandpile</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "hopalong.html";
+    else if (e.key === "ArrowRight") location.href = "sandpile.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lorenz Attractor | Math Art Gallery</title>
+<meta name="description" content="Edward Lorenz&#x27;s simplified weather model, the original butterfly. Six particles start a hair apart and are carried along the flow. Within seconds they disagree completely about where they are, but all of them keep circling the same two wings.">
+<link rel="stylesheet" href="../style.css">
+<link rel="prefetch" href="julia.html">
+</head>
+<body>
+<nav class="topbar">
+  <a href="../index.html">&larr; Math Art Gallery</a>
+  <span>3 / 24</span>
+</nav>
+
+<a class="arrow prev" href="dejong.html" title="Peter de Jong Attractor" aria-label="Previous: Peter de Jong Attractor">&lsaquo;</a>
+<a class="arrow next" href="julia.html" title="Julia Set" aria-label="Next: Julia Set">&rsaquo;</a>
+
+<main class="room">
+  <a class="frame" href="../art/lorenz.png" title="Open the full resolution image">
+    <img src="../art/lorenz.png" width="1600" height="1600" alt="Lorenz Attractor">
+  </a>
+
+  <article class="placard">
+    <span class="no">No. 3</span>
+    <h1>Lorenz Attractor</h1>
+    <div class="kind">Chaotic flow, 2026. Python and numpy.</div>
+    <pre>dx/dt = s (y - x)
+dy/dt = x (r - z) - y
+dz/dt = x y - b z</pre>
+    <p class="lede">Edward Lorenz&#x27;s simplified weather model, the original butterfly. Six particles start a hair apart and are carried along the flow. Within seconds they disagree completely about where they are, but all of them keep circling the same two wings.</p>
+    <p>In 1963 the meteorologist Edward Lorenz reduced a model of atmospheric convection to three equations and found that tiny differences in the starting conditions grew until two forecasts had nothing in common. That observation, later nicknamed the butterfly effect, helped start the field of chaos theory.</p>
+    <p>Here six particles begin about a thousandth of a unit apart, and each is integrated with the fourth-order Runge-Kutta method for 80 time units. Every step is split into twelve smaller pieces so the fast outer loops draw as smooth lines instead of dots. The view is turned slightly so the two wings don&#x27;t overlap.</p>
+    <p class="params">s = 10, r = 28, b = 8/3, RK4 with dt = 0.002, 6 trajectories</p>
+    <p class="links"><a href="../art/lorenz.png">Full resolution image</a> &middot;
+      <a href="https://github.com/jq6l43d1/math-art-gallery/blob/main/gallery/pieces/lorenz.py">Source code</a></p>
+  </article>
+
+  <nav class="walk">
+    <a class="prev" href="dejong.html"><small>&larr; Previous</small>Peter de Jong Attractor</a>
+    <a class="next" href="julia.html"><small>Next &rarr;</small>Julia Set</a>
+  </nav>
+</main>
+
+<script>
+  // Walk the gallery with the arrow keys; Escape goes back to the entrance.
+  document.addEventListener("keydown", function (e) {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    if (e.key === "ArrowLeft") location.href = "dejong.html";
+    else if (e.key === "ArrowRight") location.href = "julia.html";
+    else if (e.key === "Escape") location.href = "../index.html";
+  });
+</script>
+</body>
+</html>
